@@ -16,6 +16,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'omniauth-github'
 ruby '2.3.5'
 
 group :development, :test do
