@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  github_username: MyString
+  github_token: MyString
+  github_token_expiry: MyString
+  github_uid: MyString
+  user: one
+
+two:
+  github_username: MyString
+  github_token: MyString
+  github_token_expiry: MyString
+  github_uid: MyString
+  user: two
