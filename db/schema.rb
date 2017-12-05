@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204143254) do
+ActiveRecord::Schema.define(version: 20171205140024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "client_profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_client_profiles_on_user_id"
+  end
+
+  create_table "develloppeur_profiles", force: :cascade do |t|
+    t.string "github_username"
+    t.string "github_token"
+    t.string "github_token_expiry"
+    t.string "github_uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_develloppeur_profiles_on_user_id"
+  end
+
+  create_table "projets", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "repository_url"
+    t.bigint "develloppeur_profile_id"
+    t.bigint "client_profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_profile_id"], name: "index_projets_on_client_profile_id"
+    t.index ["develloppeur_profile_id"], name: "index_projets_on_develloppeur_profile_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +61,13 @@ ActiveRecord::Schema.define(version: 20171204143254) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "client_profiles", "users"
+  add_foreign_key "develloppeur_profiles", "users"
+  add_foreign_key "projets", "client_profiles"
+  add_foreign_key "projets", "develloppeur_profiles"
 end
