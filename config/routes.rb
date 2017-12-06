@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :client_profiles
+
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
