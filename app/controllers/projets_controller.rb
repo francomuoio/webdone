@@ -33,7 +33,7 @@ class ProjetsController < ApplicationController
     @projet.develloppeur_profile = current_user.develloppeur_profile
     fail
     if @projet.save
-
+      redirect_to projet_path(@projet)
     else
       render :new
     end
