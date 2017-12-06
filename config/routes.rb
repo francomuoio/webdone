@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  get 'clients/index'
+
+  get 'clients/show'
+
+  get 'clients/new'
+
+  get 'clients/create'
+
+  get 'clients/edit'
+
+  get 'clients/update'
+
+  get 'clients/destroy'
+
+  get 'developpeurs/index'
+
+  get 'developpeurs/show'
+
+  get 'developpeurs/new'
+
+  get 'developpeurs/create'
+
+  get 'developpeurs/edit'
+
+  get 'developpeurs/update'
+
+  get 'developpeurs/destroy'
+
   resources :projets, except: :destroy
 
   ActiveAdmin.routes(self)
