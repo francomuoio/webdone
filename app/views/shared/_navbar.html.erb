@@ -1,24 +1,46 @@
 <nav class="navigation">
   <div class="navbar-default navbar navbar-fixed-top">
-   <div class="container-fluid">
-     <div class="navbar-header">
-      <a class="current navbar-brand" href="/">
-        <img alt="Webdone" class="h-20" src="assets/images/spin-logo-inverted-@2X.png">
-      </a>
-      <button class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
-        <i class="fa fa-fw fa-user text-white"></i>
-      </button>
-      <button class="action-sidebar-open navbar-toggle collapsed" type="button">
-        <i class="fa fa-fw fa-bars text-white"></i>
-      </button>
-    </div>
+    <div class="container-fluid">
 
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign Out<i class="m-l-1 fa-lg fa fa-fw fa-sign-out m-r-1"></i></a></li>
-      </ul>
-    </div>
+      <div class="navbar-header">
+        <!-- Logo -->
+        <%= link_to root_path, class: "current navbar-brand" do %>
+          <img alt="Webdone" class="h-20" src="assets/images/spin-logo-inverted-@2X.png">
+        <% end %>
+      </div>
 
+      <div class="collapse navbar-collapse" id="navbar">
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown open">
+              <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button" aria-expanded="true">
+                <div class="avatar avatar-image avatar-sm avatar-inline loaded">
+                    <img alt="User" src="https://s3.amazonaws.com/uifaces/faces/twitter/bruno_mart/128.jpg">
+                </div>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../apps/profile-details.html">
+                      <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
+                      Your Profile
+                  </a>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        <% else %>
+
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
 </nav>
+
+
