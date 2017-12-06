@@ -21,6 +21,8 @@ gem 'omniauth-github'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem "pundit"
+gem "github_api"
+gem "binding_of_caller"
 
 group :development, :test do
   gem 'better_errors'

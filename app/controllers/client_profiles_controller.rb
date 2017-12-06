@@ -1,8 +1,6 @@
-class ClientsController < ApplicationController
-  def index
-  end
-
+class ClientProfilesController < ApplicationController
   def show
+
   end
 
   def new
@@ -15,8 +13,5 @@ class ClientsController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
   end
 end

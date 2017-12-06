@@ -65,6 +65,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
@@ -80,6 +82,8 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.7.3)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -95,6 +99,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    debug_inspector (0.0.3)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -113,6 +120,12 @@ GEM
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    github_api (0.18.2)
+      addressable (~> 2.4)
+      descendants_tracker (~> 0.0.4)
+      faraday (~> 0.8)
+      hashie (~> 3.5, >= 3.5.2)
+      oauth2 (~> 1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     has_scope (0.7.1)
@@ -186,6 +199,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    public_suffix (3.0.1)
     puma (3.11.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -290,11 +304,13 @@ DEPENDENCIES
   activeadmin!
   autoprefixer-rails
   better_errors
+  binding_of_caller
   bootstrap-sass
   coffee-rails
   devise
   figaro
   font-awesome-sass
+  github_api
   inherited_resources!
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
