@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="form-group" style="color:black;">
+    <%= simple_form_for @projet do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.input :repository_url, collection: @repolist %>
+      <%= f.submit 'Créer un projet', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
