@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :client_profiles, except: :index
-
   resources :develloppeur_profiles, only: :show
 
   resources :projets, except: :destroy
