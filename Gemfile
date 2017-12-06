@@ -23,6 +23,7 @@ gem "pundit"
 ruby '2.3.5'
 
 group :development, :test do
+  gem 'better_errors'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'

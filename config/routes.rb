@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :projets, except: :destroy
+
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
