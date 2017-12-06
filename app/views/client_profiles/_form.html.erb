@@ -1,0 +1,13 @@
+    <div class="col-sm-offset-3 col-xs-12 col-sm-6">
+        <%= simple_form_for @client do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :phone_number %>
+          <div class="text-center">
+            <%= f.submit "It's done!", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+    </div>
+
+
+
