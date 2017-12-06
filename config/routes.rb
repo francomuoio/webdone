@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
   # ATTENTION: Si bug routes avec DEVISE, voir ici <---
