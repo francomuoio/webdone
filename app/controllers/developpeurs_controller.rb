@@ -1,22 +1,21 @@
 class DeveloppeursController < ApplicationController
-  def index
-  end
-
   def show
+    @dev = DevelloppeurProfile.find(params[:id])
   end
 
   def new
+    @dev = DevelloppeurProfile.new
   end
 
   def create
+    @dev = DevelloppeurProfile.new()
   end
 
   def edit
+    @dev = DevelloppeurProfile.find(params[:id])
   end
 
   def update
-  end
-
-  def destroy
+    @dev = DevelloppeurProfile.find(params[:id])
   end
 end

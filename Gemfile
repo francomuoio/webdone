@@ -13,6 +13,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'sass-rails'
+gem 'coffee-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
@@ -20,7 +21,6 @@ gem 'omniauth-github'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem "pundit"
-ruby '2.3.5'
 
 group :development, :test do
   gem 'better_errors'
