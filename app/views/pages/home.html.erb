@@ -2,7 +2,9 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <% if  current_user.nil? %>
-    <%= link_to "Je suis un profil dev", 'auth/github', class: "btn btn-github" %>
+
+    <%= link_to "Je suis un profil dev", 'auth/github', class: "btn-github", class: "btn btn-warning" %>
+
     <%= link_to "Je suis un profil client", new_user_registration_path, class: "btn btn-success" %>
 <% end %>
 
