@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :develloppeur_profiles, only: :show
 
-  resources :projets, except: :destroy
+  resources :projets, except: :destroy do
+    resources :messages, except: :show
+  end
 
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { registrations: 'registrations' }
