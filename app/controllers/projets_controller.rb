@@ -4,9 +4,11 @@ require 'open-uri'
 class ProjetsController < ApplicationController
   def index
     if current_user.role == "developpeur"
-      @projets = Projet.where(develloppeur_profile_id = current_user.profile.id)
+      dev = DevelloppeurProfile.find_by user_id: current_user.id
+      @projets = Projet.where(develloppeur_profile_id: dev.id)
     else
-      @projets = Projet.where(client_profile_id = current_user.profile.id)
+      client = ClientProfile.find_by user_id: current_user.id
+      @projets = Projet.where(client_profile_id: client.id)
     end
   end
 
@@ -31,7 +33,6 @@ class ProjetsController < ApplicationController
   def create
     @projet = Projet.new(projet_params)
     @projet.develloppeur_profile = current_user.develloppeur_profile
-    fail
     if @projet.save
       redirect_to projet_path(@projet)
     else
