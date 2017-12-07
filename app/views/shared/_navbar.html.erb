@@ -14,17 +14,23 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown open">
               <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button" aria-expanded="true">
-                <div class="avatar avatar-image avatar-sm avatar-inline loaded">
+                <div class="avatar avatar-image avatar-lg avatar-inline loaded">
                     <img alt="User" src="https://s3.amazonaws.com/uifaces/faces/twitter/bruno_mart/128.jpg">
                 </div>
               </a>
 
               <ul class="dropdown-menu">
                 <li>
-                  <a href="../apps/profile-details.html">
-                      <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
-                      Your Profile
-                  </a>
+                  <%= link_to projets_path do %>
+                    <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
+                    Mon Profil
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to projets_path do %>
+                    <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
+                    Mes projets
+                  <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete do %>
