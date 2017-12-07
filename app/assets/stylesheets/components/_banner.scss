@@ -6,13 +6,8 @@
   background-size: cover !important;
   display: flex;
   align-items: center;
-  justify-content: left;
-  padding-left: 200px;
-  background-color: $gray;
-}
-
-.banner-content{
-
+  justify-content: center;
+  background-image: url(http://res.cloudinary.com/dj7tgtuol/image/upload/o_70/v1512649523/kevin-bhagat-343433_hbrtru.jpg);
 }
 
 .banner h1 {
@@ -23,19 +18,13 @@
 .banner p {
   font-size: 25px;
   font-weight: lighter;
-  color: rgb(150, 150, 150);
+  color: white;
   opacity: 0.8;
   margin-bottom: 30px;
-  color: #34495E,
 }
 
-.btn-primary {
-background-color: #34495E;
-border-radius: 3px;
-border: #34495E;
+.btn-github {
+
 }
 
-.btn-primary:hover {
-background-color: #5D6D7E;
-}
 

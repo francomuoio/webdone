@@ -1,16 +1,4 @@
-.container-homepage {
-  color: white;
-  text-align: center;
-  padding: 20px;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.card-homepage {
+.home_cards{
   height: 250px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
