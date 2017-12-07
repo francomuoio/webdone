@@ -23,16 +23,16 @@ class ProjetsController < ApplicationController
     repos.list.each do |repo|
       @repolist << [repo[:name], repo[:url]]
     end
-    # clientele = ClientProfile.all
-    # @clients = []
-    # clientele.each do |cli|
-    #   @clients << ["#{cli.first_name} #{cli.last_name}", cli.id]
-    # end
+    clientele = ClientProfile.all
+    @clients = []
+    clientele.each do |cli|
+      @clients << ["#{cli.first_name} #{cli.last_name}", cli.id]
+    end
   end
 
   def create
     @projet = Projet.new(projet_params)
-    @projet.develloppeur_profile = current_user.develloppeur_profile
+    @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
     if @projet.save
       redirect_to projet_path(@projet)
     else
