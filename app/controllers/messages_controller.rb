@@ -8,17 +8,21 @@ class MessagesController < ApplicationController
     data = Github::Client::Issues.new oauth_token: current_user.develloppeur_profile.github_token, repo: @projet.repository_url
     hashes = data.list
     @issues = []
+    @dones = []
     hashes.each do |issue|
       prems = JSON.parse(open(issue["url"]).read)
       deus = JSON.parse(open("#{issue['url']}/labels").read)
       tres = JSON.parse(open("#{issue['url']}/comments").read)
-      @issues << { title: prems["title"], label: deus, comments: tres }
+      @issues << { title: prems["title"], labels: deus, comments: tres, owner: issue["repository"]["owner"]["login"], repo: issue["repository"]["name"] }
+      # Lien pour le formulaire : "/repos/#{issue.owner}/#{issue.repo}/issues"
+      @dones << issue[:labels].select { |el| el.values_at("name") == ["done"] }.flatten
     end
     fail
   end
 
   def new
     # Créer un nouveau message
+    @projet = Projet.find(params[:projet_id])
   end
 
   def create
