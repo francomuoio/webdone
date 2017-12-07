@@ -20,7 +20,6 @@ class ProjetsController < ApplicationController
     @projet = Projet.new
     repos = Github::Client::Repos.new oauth_token: current_user.develloppeur_profile.github_token
     @repolist = []
-
     repos.list.each do |repo|
       @repolist << [repo[:name], repo[:url]]
     end
