@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     @issuedones = []
     labels = []
     comments = []
+    @count = 0
     coms = Github::Client::Issues::Comments.new user: user, repo: repo # Récupère l'ensemble des commentaires du repo
     data.list.each do |issue|
       issue["labels"].each do |label|
@@ -16,6 +17,7 @@ class MessagesController < ApplicationController
       end
       coms.list.each do |com|
         comments << { content: com["body"], owner: com["user"]["login"], date: com["created_at"] } if com["html_url"].split('#').first == issue["html_url"]
+        @count += 1 if com["html_url"].split('#').first == issue["html_url"]
       end
       @issues << { title: issue["title"], label: labels.first, comments: comments }
       @issuedones << { title: issue["title"], labels: labels, comments: comments } unless issue[:labels].select { |el| el.values_at("name") == ["done"] }.empty?
