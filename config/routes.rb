@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :client_profiles
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+ devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
   # ATTENTION: Si bug routes avec DEVISE, voir ici <---
   get '/auth/:provider/callback', to: 'auth#create'
