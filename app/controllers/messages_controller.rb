@@ -22,7 +22,6 @@ class MessagesController < ApplicationController
       labels = []
       comments = []
     end
-    fail
   end
 
   def new

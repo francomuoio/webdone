@@ -2,7 +2,7 @@
 <div class="row">
 
   <% @projets.each do |projet| %>
-    <%= link_to projet_path(projet) do %>
+    <%= link_to projet_dones_path(projet) do %>
       <%= render "shared/card", projet: projet %>
     <% end %>
   <% end %>
