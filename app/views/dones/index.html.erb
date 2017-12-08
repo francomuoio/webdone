@@ -1,2 +1,13 @@
 <h1>Dones#index</h1>
 <p>Find me in app/views/dones/index.html.erb</p>
+
+<a href="/messages"></a>
+<a href="/dones"></a>
+
+<% @arr.each do |element| %>
+  <ul>
+    <li>
+      <%= element %>
+    </li>
+  </ul>
+<% end %>

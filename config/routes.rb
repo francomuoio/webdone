@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :develloppeur_profiles, only: :show
 
   resources :projets, except: :destroy do
-    resources :dones
+    resources :dones, only: :index
+
   end
 
   ActiveAdmin.routes(self)
