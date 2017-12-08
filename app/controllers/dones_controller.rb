@@ -19,8 +19,9 @@ class DonesController < ApplicationController
       #   labels: messages(clean_url(aa["labels_url"])),
       #   comments: messages(clean_url(aa["comments_url"]))
       #  }
-      @arr << aa.title if aa["repository_url"] == url
+      @arr << aa if aa["repository_url"] == url
     end
+    fail
   end
 
 end

@@ -4,10 +4,9 @@ Rails.application.routes.draw do
 
   resources :projets, except: :destroy do
     resources :dones, only: :index
-
   end
+  resources :client_profiles
 
-  ActiveAdmin.routes(self)
   devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
   # ATTENTION: Si bug routes avec DEVISE, voir ici <---
@@ -15,4 +14,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  ActiveAdmin.routes(self)
 end

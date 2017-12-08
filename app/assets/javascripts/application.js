@@ -1,2 +1,9 @@
+//= require jquery
 //= require rails-ujs
-//= require_tree .
+//= require bootstrap-sprockets
+//= require cable
+//= require active_admin
+
+
+
+console.log('salut la tortue')

@@ -2,6 +2,15 @@ require 'json'
 require 'open-uri'
 
 class ProjetsController < ApplicationController
+  before_action :has_profile
+
+  def has_profile
+    if current_user.role == "client" && current_user.client_profile.nil?
+      redirect_to new_client_profile_path
+    end
+  end
+
+
   def index
     if current_user.role == "developpeur"
       dev = DevelloppeurProfile.find_by user_id: current_user.id
