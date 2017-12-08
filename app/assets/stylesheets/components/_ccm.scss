@@ -1,0 +1,25 @@
+.home_cards{
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: black;
+  position: relative;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+ }
+
+.card-homepage h1 {
+  text-align: center;
+  color: #34495E;
+}
+
+.row h2 {
+  color: #34495E;
+}
+
+.body-homepage {
+  background-color: white;
+}
+

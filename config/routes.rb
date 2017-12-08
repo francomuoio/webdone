@@ -7,13 +7,17 @@ Rails.application.routes.draw do
   end
 
 
+
+  resources :client_profiles
+  resources :projets, except: :destroy
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   # devise_for :users
   # ATTENTION: Si bug routes avec DEVISE, voir ici <---
   get '/auth/:provider/callback', to: 'auth#create'
 
-  ActiveAdmin.routes(self)
-
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  ActiveAdmin.routes(self)
 end
