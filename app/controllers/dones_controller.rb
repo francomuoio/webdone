@@ -21,6 +21,5 @@ class DonesController < ApplicationController
       #  }
       @arr << aa.title if aa["repository_url"] == url
     end
-
   end
 end
