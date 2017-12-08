@@ -13,15 +13,9 @@
 
       <%= render 'shared/navbar' %>
       <%= yield :home %>
-      <div class="content" style="min-height: 1813px;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <%= yield %>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= yield %>
+
+
 
       <%= render 'shared/footer' %>
 
