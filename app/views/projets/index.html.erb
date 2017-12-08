@@ -2,7 +2,9 @@
 <div class="row">
 
   <% @projets.each do |projet| %>
-    <%= render "shared/card", projet: projet %>
+    <%= link_to projet_path(projet) do %>
+      <%= render "shared/card", projet: projet %>
+    <% end %>
   <% end %>
 
   <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
