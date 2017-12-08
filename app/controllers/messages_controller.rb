@@ -1,21 +1,26 @@
-require 'json'
-require 'open-uri'
-
 class MessagesController < ApplicationController
   def index
-    # Récupérér tous les messages
     @projet = Projet.find(params[:projet_id])
-    data = Github::Client::Issues.new oauth_token: current_user.develloppeur_profile.github_token, repo: @projet.repository_url
-    hashes = data.list
+    repo = @projet.repository_url.split('/').last
+    gitprofile = Github.new oauth_token: current_user.develloppeur_profile.github_token
+    user = gitprofile.users.get["login"]
+    data = gitprofile.issues user
     @issues = []
-    @dones = []
-    hashes.each do |issue|
-      prems = JSON.parse(open(issue["url"]).read)
-      deus = JSON.parse(open("#{issue['url']}/labels").read)
-      tres = JSON.parse(open("#{issue['url']}/comments").read)
-      @issues << { title: prems["title"], labels: deus, comments: tres, owner: issue["repository"]["owner"]["login"], repo: issue["repository"]["name"] }
-      # Lien pour le formulaire : "/repos/#{issue.owner}/#{issue.repo}/issues"
-      @dones << issue[:labels].select { |el| el.values_at("name") == ["done"] }.flatten
+    @issuedones = []
+    labels = []
+    comments = []
+    coms = Github::Client::Issues::Comments.new user: user, repo: repo # Récupère l'ensemble des commentaires du repo
+    data.list.each do |issue|
+      issue["labels"].each do |label|
+        labels << label["name"]
+      end
+      coms.list.each do |com|
+        comments << com["body"] if com["html_url"].split('#').first == issue["html_url"]
+      end
+      @issues << { id: issue["id"], title: issue["title"], labels: labels, comments: comments }
+      @issuedones << { title: issue["title"], labels: labels, comments: comments } unless issue[:labels].select { |el| el.values_at("name") == ["done"] }.empty?
+      labels = []
+      comments = []
     end
     fail
   end
