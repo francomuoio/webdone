@@ -1,6 +1,20 @@
-<div class="container">
+
+<div class="row">
+
   <% @projets.each do |projet| %>
-    <h2><%= projet.title %></h2>
-    <p><%= projet.content %></p>
+    <%= link_to projet_path(projet) do %>
+      <%= render "shared/card", projet: projet %>
+    <% end %>
   <% end %>
+
+  <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
+    <div class="card-projet">
+      <div class="panel panel-default b-a-0 shadow-box" style="height: 17.6em; background-color:#383838">
+        <div class="panel-body text-center">
+          <h2 style="font-size: 80px"><%= link_to "+", new_projet_path %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
