@@ -15,9 +15,9 @@ class MessagesController < ApplicationController
         labels << label["name"]
       end
       coms.list.each do |com|
-        comments << com["body"] if com["html_url"].split('#').first == issue["html_url"]
+        comments << { content: com["body"], owner: com["user"]["login"], date: com["created_at"] } if com["html_url"].split('#').first == issue["html_url"]
       end
-      @issues << { id: issue["id"], title: issue["title"], labels: labels, comments: comments }
+      @issues << { title: issue["title"], label: labels.first, comments: comments }
       @issuedones << { title: issue["title"], labels: labels, comments: comments } unless issue[:labels].select { |el| el.values_at("name") == ["done"] }.empty?
       labels = []
       comments = []
