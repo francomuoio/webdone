@@ -1,5 +1,21 @@
-.home_cards{
-  height: 250px;
+.body-ccm{
+  background-color: white;
+}
+.container-cm {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+}
+
+.card-ccm {
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -9,17 +25,4 @@
   display: flex;
   justify-content: space-between;
  }
-
-.card-homepage h1 {
-  text-align: center;
-  color: #34495E;
-}
-
-.row h2 {
-  color: #34495E;
-}
-
-.body-homepage {
-  background-color: white;
-}
 
