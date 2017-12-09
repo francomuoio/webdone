@@ -8,17 +8,18 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
-  <body class="sidebar-disabled">
-    <div class="main-wrap">
 
+  <body class="sidebar-disabled navbar-fixed">
+    <div class="main-wrap">
       <%= render 'shared/navbar' %>
       <%= yield :home %>
-      <%= yield %>
 
-
-
-      <%= render 'shared/footer' %>
-
+      <div class="content">
+        <div class="container-fluid">
+          <%= yield %>
+          <%= render 'shared/footer' %>
+        </div>
+      </div>
     </div>
 
     <%= javascript_include_tag 'application' %>
