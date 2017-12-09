@@ -7,11 +7,11 @@ class DonesController < ApplicationController
     #data = Github::Client::Issues.new oauth_token: current_user.develloppeur_profile.github_token, repo: @projet.repository_url
 
     issues = Github::Client::Issues.new oauth_token: current_user.develloppeur_profile.github_token
-    data = issues.list 'francomuoio', 'github', state: 'open'
+    data = issues.list current_user.develloppeur_profile.github_username, 'github', state: 'open'
     @arr = []
     # tes issues ou t'es assigné
-    gh_username = current_user.develloppeur_profile.github_username
-    url = "https://api.github.com/repos/#{gh_username}/#{@projet.title.downcase}"
+    # gh_username = current_user.develloppeur_profile.github_username
+    # url = "https://api.github.com/repos/#{gh_username}/#{@projet.title.downcase}"
     data.body.each do |aa|
       # issue = {
       #   comments_url: messages(clean_url(aa["comments_url"])),
