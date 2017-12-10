@@ -1,3 +1,7 @@
+<% content_for (:title) do %>
+  <%= "#{@projet.title} - Messages" %>
+<% end %>
+
 <!-- START EDIT CONTENT -->
 <div class="row m-t-1">
   <div class="col-lg-10">
@@ -35,7 +39,9 @@
                   <a class="btn btn-default " href="javascript: void(0)" role="button"><i class="fa fa-trash"></i></a>
                 </div>
                 <div class="btn-group" role="group" aria-label="...">
-                  <a class="btn btn-success" href="new-email.html"><i class="fa fa-fw fa-pencil"></i></a>
+                  <%= link_to new_projet_message_path, class: 'btn btn-success' do %>
+                    <i class="fa fa-fw fa-pencil"></i>
+                  <% end %>
                 </div>
               </div>
               <!-- END Toolbar -->
@@ -109,7 +115,7 @@
       </div>
       <!-- END Table -->
       <div class="panel-footer">
-        <span class="pull-left m-t-1">Showing 1 to 10 of <%= @count %> entries</span>
+        <span class="pull-left m-t-1">Affiche les messages de 1 à 10 sur <%= @count %> messages</span>
         <!-- START Pagination -->
         <div class="text-right">
           <nav>

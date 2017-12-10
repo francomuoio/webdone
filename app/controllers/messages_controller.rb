@@ -29,10 +29,11 @@ class MessagesController < ApplicationController
   def new
     # Créer un nouveau message
     @projet = Projet.find(params[:projet_id])
+    @dev = @projet.develloppeur_profile.github_username
   end
 
   def create
-
+    Github::Client::Issues::Comments.create body: params[:body]
   end
 
   def edit
