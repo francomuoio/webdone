@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
   resources :projets, except: :destroy do
-    resources :messages, except: :show
+    resources :messages, only: [:index, :create]
     resources :dones, only: :index
   end
 
