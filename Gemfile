@@ -25,6 +25,8 @@ gem "github_api"
 gem "binding_of_caller"
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'faraday-http-cache'
+
 
 group :development, :test do
   gem 'better_errors'

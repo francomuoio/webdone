@@ -1,0 +1,84 @@
+<% content_for (:title) do %>
+  <%= "Nouveau message" %>
+<% end %>
+
+<div class="container">
+  <!-- START EDIT CONTENT -->
+  <div class="row m-t-1">
+    <div class="col-lg-10">
+      <form action="<%= projet_messages_path(@projet.id) %>" method="post">
+      <!-- START Panel Sessions -->
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <div class="panel panel-default b-a-0 shadow-box">
+          <div class="panel-heading">
+          <!-- START Header with Option -->
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+                <%= link_to projet_messages_path, class: 'p-l-0 btn btn-link' do %>
+                  <i class="fa fa-fw fa-angle-left m-r-1"></i>Retour
+                <% end %>
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-7 col-sm-offset-2 col-lg-offset-2 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12">
+                <!-- START Toolbar -->
+                <div class="btn-group hidden-lg hidden-md hidden-sm" role="group" aria-label="...">
+                  <%= link_to projet_messages_path, class: 'btn p-l-0 btn-link' do %>
+                    <i class="fa fa-angle-left m-r-1"></i>Retour
+                  <% end %>
+                </div>
+                <div class="btn-toolbar pull-right">
+                  <div class="btn-group" role="group" aria-label="...">
+                    <%= link_to 'Annuler', projet_messages_path, class: 'btn btn-link' %>
+                  </div>
+                  <div class="btn-group" role="group" aria-label="...">
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fa fa-fw fa-paper-plane"></i>
+                      <span class="hidden-md hidden-sm hidden-xs">Envoyer</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- END Toolbar -->
+              </div>
+            </div>
+            <!-- END Header with Option -->
+          </div>
+          <!-- START Panel Body Content -->
+          <div class="panel-body">
+            <div class="input-group m-b-1">
+              <span class="input-group-addon">A</span>
+              <input name="dev" class="form-control disabled" placeholder="<%= @dev %>" type="text">
+              <!-- Design à garder
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-fw fa-plus"></i></button>
+              </span>
+            -->
+            </div>
+            <div class="input-group m-b-2">
+              <span class="input-group-addon">Issue</span>
+              <input name="projet" class="form-control disabled" placeholder="<%= @projet.title %>" type="text">
+            </div>
+            <textarea name="body" class="form-control" rows="6" placeholder="Entrez votre message..."></textarea>
+            <!-- START Attachments Section -->
+          </div>
+          <div class="panel-footer">
+            <!-- START Header with Option -->
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+              <div class="col-lg-7 col-md-7 col-sm-7 col-sm-offset-2 col-lg-offset-2 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12">
+                <!-- START Toolbar -->
+                <div class="btn-toolbar pull-right">
+                  <div class="btn-group" role="group" aria-label="...">
+                    <a role="button" class="btn btn-default" href="new-email.html"><i class="fa fa-fw fa-paperclip"></i>Ajouter Pièces jointes</a>
+                  </div>
+                </div>
+                <!-- END Toolbar -->
+              </div>
+            </div>
+            <!-- END Header with Option -->
+          </div>
+        </div>
+      </form>
+      <!-- END Panel Sessions -->
+    </div>
+  </div>
+  <!-- END EDIT CONTENT -->
+</div>
