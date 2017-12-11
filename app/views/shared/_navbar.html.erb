@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="navbar-header" style="min-height: 5em">
         <%= link_to root_path do %>
-          <%=image_tag 'logo.png', :size => "70x60"%>
+          <%=image_tag 'favicon.png', :size => "60x60"%>
         <% end %>
       </div>
 
@@ -34,26 +34,22 @@
 
               <ul class="dropdown-menu">
                 <li>
-
-
                   <% if current_user.client_profile %>
                     <%= link_to client_profile_path(current_user.client_profile) do %>
                       <i class="fa fa-user"></i>
                       Mon Profile
                     <% end %>
                   <% else %>
-                    <%= link_to new_client_profile_path do %>
-                      <i class="fa fa-edit"></i>Créer mon profil
-                    <% end %>
                   <% end %>
                 </li>
 
                 <li>
                   <%= link_to projets_path do %>
-                    <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
+                    <i class="fa fa-user"></i>
                     Mes projets
                   <% end %>
                 </li>
+
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete do %>
                     <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
