@@ -62,7 +62,7 @@
             <tbody>
               <!-- START ROW Mail (New) -->
               <% @issues.each do |issue| %>
-                <% issue[:comments].each do |com| %>
+                <% comments_for_issue(issue, @comments).each do |com| %>
                   <tr>
                     <td class="v-a-m">
                       <i class="fa fa-fw fa-circle text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="You Got New Message"></i>
@@ -194,9 +194,9 @@
               </div>
               <div class="input-group m-b-2">
                 <span class="input-group-addon">Issue</span>
-                <select name="issue_id" placeholder="<%= @projet.title %>" class="form-control">
-                  <% @collection.each do |c| %>
-                    <option value="<%= c[1] %>"><%= c[0] %></option>
+                <select name="issue_number" placeholder="<%= @projet.title %>" class="form-control">
+                  <% @issues.each do |issue| %>
+                    <option value="<%= issue['number'] %>"><%= issue['title'] %></option>
                   <% end %>
                 </select>
               </div>

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.5'
+ruby '2.4.1'
 
 gem 'devise'
 gem 'figaro'
@@ -24,6 +24,7 @@ gem "pundit"
 gem "github_api"
 gem "binding_of_caller"
 gem 'cloudinary'
+gem 'faraday-http-cache'
 
 group :development, :test do
   gem 'better_errors'
