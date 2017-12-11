@@ -24,6 +24,7 @@ gem "pundit"
 gem "github_api"
 gem "binding_of_caller"
 gem 'cloudinary'
+gem 'faraday-http-cache'
 
 group :development, :test do
   gem 'better_errors'
