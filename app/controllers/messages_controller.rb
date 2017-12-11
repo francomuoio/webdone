@@ -13,9 +13,4 @@ class MessagesController < ApplicationController
     service.create_comment(projet, params[:issue_number], params[:body])
     redirect_to projet_messages_path(projet)
   end
-
-  def destroy
-    # Supprimer un message
-    fail
-  end
 end
