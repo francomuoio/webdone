@@ -16,6 +16,8 @@ class ProjetsController < ApplicationController
       dev = DevelloppeurProfile.find_by user_id: current_user.id
       @projets = Projet.where(develloppeur_profile_id: dev.id)
       @service = GithubIssuesService.new(current_user.develloppeur_profile.github_token)
+    elsif current_user.client_profile.nil?
+      redirect_to new_client_profile_path
     else
       client = ClientProfile.find_by user_id: current_user.id
       @projets = Projet.where(client_profile_id: client.id)
