@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20171206084706) do
   create_table "projets", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.string "repository_url"
     t.bigint "develloppeur_profile_id"
     t.bigint "client_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "repository_url"
     t.index ["client_profile_id"], name: "index_projets_on_client_profile_id"
     t.index ["develloppeur_profile_id"], name: "index_projets_on_develloppeur_profile_id"
   end
