@@ -5,7 +5,7 @@
         <h2><%= projet.title %></h2>
         Dernière modification par: <a href="profile-details.html" class="text-gray-darker"><span><%= projet.develloppeur_profile.github_username %></span></a>
         <br>
-        <span><%= Date.today %></span>
+        <span><%= Date.today.strftime("%A, %b %d") %></span>
       </div>
 
       <ul class="list-group no-bg">
@@ -20,7 +20,7 @@
             </span>
         </li>
         <li class="list-group-item  no-bg">
-          Début du projet: <span><%= projet.created_at %></span>
+          Début du projet: <span><%= projet.created_at.strftime("%A, %b %d") %></span>
         </li>
       </ul>
     </div>

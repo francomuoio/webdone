@@ -62,8 +62,8 @@
                   <span class="badge-outline badge badge-success"><%= issue["labels"].first["name"] %></span>
                 </td>
                 <td class="v-a-m text-right">
-                  <span class="text-gray-darker"><%= com["created_at"] %></span>
-                  <br><span>HH:MM</span>
+                  <span class="text-gray-darker"><%= com["created_at"].split('T').first %></span>
+                  <br><span><%= com["created_at"].split('T').last %></span>
                 </td>
               </tr>
             <% end %>
