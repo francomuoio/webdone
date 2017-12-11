@@ -1,9 +1,25 @@
 <% content_for (:title) do %>
   <%= "#{@projet.title} - Messages" %>
 <% end %>
+   <div class="tabbable-line">
+      <ul class="nav nav-tabs">
+        <li role="presentation"  ><%= link_to "Timeline", projet_dones_path(@projet)%></li>
+          <li role="presentation" class="active" ><%= link_to "Messages", projet_messages_path(@projet)%></li>
+
+          <li role="presentation"  ><%= link_to "stats", projet_dones_path(@projet)%></li>
+      </ul>
+      <div class="tab-content"></div>
+    </div>
+<div class="part1">
+  <div class="part2">
+<%= render "shared/header" %>
+</div>
 <!-- START EDIT CONTENT -->
+<div class="part3">
 <div class="container">
   <%= render 'shared/index_messages' %>
   <%= render 'shared/message_form' %>
   <!-- END EDIT CONTENT -->
+</div>
+</div>
 </div>
