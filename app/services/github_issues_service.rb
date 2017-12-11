@@ -24,6 +24,16 @@ class GithubIssuesService
     response.to_ary
   end
 
+  # def get_description
+  #   user, repo = projet.repository_url.split('/').last(2)
+  #   response = @github.issues.description.list(
+  #     user: user,
+  #     repo: repo,
+  #     auto_pagination: true
+  #   )
+  #   response.to_ary
+  # end
+
   def create_comment(projet, issue_number, body)
     user, repo = projet.repository_url.split('/').last(2)
     @github.issues.comments.create(
