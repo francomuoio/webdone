@@ -35,7 +35,7 @@ class ClientProfilesController < ApplicationController
   private
 
   def client_params
-    params.require(:client_profile).permit(:first_name, :last_name, :phone_number)
+    params.require(:client_profile).permit(:first_name, :last_name, :phone_number, :photo, :photo_cache)
   end
 
   def set_client

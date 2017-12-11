@@ -1,13 +1,40 @@
-    <div class="col-sm-offset-3 col-xs-12 col-sm-6">
-        <%= simple_form_for @client do |f| %>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :phone_number %>
-          <div class="text-center">
-            <%= f.submit "It's done!", class: "btn btn-primary" %>
+<div class="panel-body">
+  <!-- START All Forms -->
+    <%= simple_form_for @client, html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form do |f| %>
+      <!-- START Form Avatar -->
+      <div class="form-group">
+        <label class="col-sm-3 control-label"></label>
+        <div class="col-sm-6">
+          <div class="panel panel-default no-bg b-a-2 b-gray-lighter b-dashed m-b-0">
+            <div class="panel-body">
+              <p class="text-center">
+                <i class="fa fa-3x fa-user text-gray-light text-center m-t-2"></i>
+                <br>
+              </p>
+              <h5 class="text-center">Upload Your Photo...</h5>
+              <div class="text-center">
+                <%= f.input :photo %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
+              <p class="small text-center">JPG, GIF, PNG, MOV and AVI. Please choose a files under 2GB to upload. File sizes are 400 x 300px.</p>
+              <p></p>
+            </div>
           </div>
-        <% end %>
-    </div>
+        </div>
+      </div>
+      <!-- END Form Avatar -->
+
+      <%= f.input :first_name, placeholder: 'First Name...' %>
+      <%= f.input :last_name, placeholder: 'Last Name...' %>
+      <%= f.input :phone_number, placeholder: 'Phone number...' %>
+      <br>
+      <br>
+      <div class="text-center">
+        <%= f.submit "It's done!", class: "btn btn-gray-light btn-lg" %>
+      </div>
+    <% end %>
+</div>
 
 
 
