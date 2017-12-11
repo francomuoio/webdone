@@ -24,6 +24,7 @@ gem "pundit"
 gem "github_api"
 gem "binding_of_caller"
 gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 group :development, :test do
   gem 'better_errors'

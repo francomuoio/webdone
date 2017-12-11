@@ -1,54 +1,66 @@
 
 <nav class ="navigation">
-<div class="navbar-default navbar navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header" style="min-height: 5em">
-      <%= link_to root_path do %>
-        <%=image_tag 'logo.png', :size => "70x60", margin-top%>
-      <% end %>
-    </div>
+  <div class="navbar-default navbar navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header" style="min-height: 5em">
+        <%= link_to root_path do %>
+          <%=image_tag 'logo.png', :size => "70x60"%>
+        <% end %>
+      </div>
 
-    <!-- START Right Side Navbar -->
-    <div class="collapse navbar-collapse" id="navbar">
-      <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Mes projets", projets_path %>
-          </li>
-          <li class="dropdown open">
-            <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button" aria-expanded="true">
-              <div class="avatar avatar-image avatar-lg avatar-inline loaded">
-                <img alt="User" src="https://s3.amazonaws.com/uifaces/faces/twitter/bruno_mart/128.jpg">
-              </div>
-            </a>
+      <!-- START Right Side Navbar -->
+      <div class="collapse navbar-collapse" id="navbar">
+        <% if user_signed_in? %>
 
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to projets_path do %>
-                  <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
-                  Mon Profil
-                <% end %>
-              </li>
-              <li>
-                <%= link_to projets_path do %>
-                  <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
-                  Mes projets
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <!-- Links when logged in -->
+              <%= link_to "Mes projets", projets_path %>
+            </li>
 
-      <% end %>
+            <!-- Avatar with dropdown menu -->
+            <li class="dropdown open">
+              <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button" aria-expanded="true">
+                <div class="avatar avatar-image avatar-lg avatar-inline loaded">
+                  <% if current_user.client_profile && current_user.client_profile.photo.url %>
+                    <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
+                  <%else %>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                    <%= t(".sign_out", default: "Log out") %>
+                    <%end %>
+                  <%end %>
+                </div>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to client_profile_path(current_user.client_profile) do %>
+                    <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
+                    Mon Profil
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to projets_path do %>
+                    <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
+                    Mes projets
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                  <% end %>
+                </li>
+              </ul>
+
+            </li>
+          </ul>
+
+        <% else %>
+
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </nav>
 
 

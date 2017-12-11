@@ -13,15 +13,13 @@
     <div class="main-wrap">
       <%= render 'shared/navbar' %>
       <%= yield :home %>
-
       <div class="content">
         <div class="container-fluid">
           <%= yield %>
-          <%= render 'shared/footer' %>
         </div>
       </div>
+      <%= render 'shared/footer' %>
     </div>
-
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
