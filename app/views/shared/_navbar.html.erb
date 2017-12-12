@@ -5,57 +5,69 @@
 
       <div class="navbar-header">
         <%= link_to root_path, class: "current navbar-brand" do %>
-          <%=image_tag 'logo.png', :size => "60x60"%>
+          <%=image_tag 'Webdone-logo.png', class: 'navbar-logo'%>
         <% end %>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar">
+        <% if user_signed_in? %>
 
-        <!-- START Right Side Navbar -->
-        <ul class="nav navbar-nav navbar-right">
-          <%= render 'shared/navbar/projects_dropdown' %>
-          <li class="dropdown">
-            <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
-              <span class="m-r-1">Ferne Flatley</span>
-              <div class="avatar avatar-image avatar-sm avatar-inline loaded">
-                <img alt="User" src="https://s3.amazonaws.com/uifaces/faces/twitter/sementiy/128.jpg">
-              </div>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-header">
-                <small class="text-uppercase">
-                  <strong>Account</strong>
-                </small>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../apps/profile-details.html">
-                  <i class="fa fa-user fa-fw text-gray-dark m-r-1"></i>
-                  Your Profile
-                </a>
-              </li>
-              <li>
-                <a href="../apps/profile-edit.html">
-                  <i class="fa fa-gear fa-fw text-gray-dark m-r-1"></i>
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a href="../apps/faq.html">
-                  <i class="fa fa-file fa-fw text-gray-dark m-r-1"></i>
-                  Faq
-                </a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="../pages/login.html">
-                  <i class="fa fa-sign-out fa-fw text-gray-dark m-r-1"></i>
-                  Log Out
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+          <!-- START Right Side Navbar -->
+          <ul class="nav navbar-nav navbar-right">
+            <%= render 'shared/navbar/projects_dropdown' %>
+            <li class="dropdown">
+              <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
+                <span class="m-r-1">Ferne Flatley</span>
+                <div class="avatar avatar-image avatar-sm avatar-inline loaded">
+                  <% if current_user.client_profile && current_user.client_profile.photo.url %>
+                    <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
+                  <%else %>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                    <%= t(".sign_out", default: "Log out") %>
+                    <%end %>
+                  <%end %>
+                </div>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">
+                  <small class="text-uppercase">
+                    <strong>Account</strong>
+                  </small>
+                </li>
+                <li role="separator" class="divider"></li>
+
+                <li>
+                  <% if current_user.client_profile %>
+                    <%= link_to client_profile_path(current_user.client_profile) do %>
+                      <i class="fa fa-user"></i>
+                      Mon Profile
+                    <% end %>
+                  <% else %>
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to projets_path do %>
+                    <i class="fa fa-user"></i>
+                    Mes projets
+                  <% end %>
+                </li>
+
+                <li role="separator" class="divider"></li>
+
+                <li>
+
+                 <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out") %>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        <% else %>
+
+        <% end %>
         <!-- END Right Side Navbar -->
       </div>
 
