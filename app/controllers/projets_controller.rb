@@ -15,6 +15,9 @@ class ProjetsController < ApplicationController
     if current_user.role == "developpeur"
       dev = DevelloppeurProfile.find_by user_id: current_user.id
       @projets = Projet.where(develloppeur_profile_id: dev.id)
+      @service = GithubIssuesService.new(current_user.develloppeur_profile.github_token)
+    elsif current_user.client_profile.nil?
+      redirect_to new_client_profile_path
     else
       client = ClientProfile.find_by user_id: current_user.id
       @projets = Projet.where(client_profile_id: client.id)
@@ -43,7 +46,7 @@ class ProjetsController < ApplicationController
     @projet = Projet.new(projet_params)
     @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
     if @projet.save
-      redirect_to projet_path(@projet)
+      redirect_to projet_dones_path(@projet)
     else
       render :new
     end

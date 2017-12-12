@@ -1,11 +1,10 @@
-<div class="container">
-  <div class="form-group" style="color:black;">
-    <%= simple_form_for @projet do |f| %>
-      <%= f.input :title %>
-      <%= f.input :content %>
-      <%= f.input :repository_url, collection: @repolist %>
-      <!-- <%= f.input :client_profile_id, collection: @clients %> -->
-      <%= f.submit 'Créer un projet', class: 'btn btn-primary' %>
-    <% end %>
+<br>
+<br>
+<div class="col-lg-6 col-lg-offset-3">
+  <div class="panel panel-default b-a-0 shadow-box">
+    <div class="panel-heading">
+        <h4 class="panel-title">Mon Projet</h4>
+    </div>
+    <%= render 'form' %>
   </div>
 </div>

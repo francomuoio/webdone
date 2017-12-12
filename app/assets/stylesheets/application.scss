@@ -4,13 +4,13 @@
 // @import "config/bootstrap_variables";
 
 // Import theme
-@import "vendor/app";
-// @import "vendor/bootstrap/bootstrap";
+// @import "vendor/bootstrap";
+// @import "vendor/app";
 // @import "vendor/plugins/plugins";
 
 // External libraries
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 

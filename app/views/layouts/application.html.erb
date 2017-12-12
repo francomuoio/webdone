@@ -7,6 +7,7 @@
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'theme', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= favicon_link_tag "favicon.ico" %>
@@ -30,6 +31,7 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
 
+
   <body>
     <%= render 'shared/navbar' %>
     <div class="off-content-wrapper">
@@ -38,7 +40,7 @@
     <%= render 'shared/footer' %>
   </body>
 
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+<%= javascript_include_tag 'theme' %>
+<%= javascript_include_tag 'application' %>
 
 </html>
