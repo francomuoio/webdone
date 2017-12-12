@@ -44,4 +44,9 @@ class GithubIssuesService
     )
   end
 
+  def get_dev(projet)
+    user, repo = projet.repository_url.split('/').last(2)
+    response = @github.repos.list.first["owner"]
+  end
+
 end

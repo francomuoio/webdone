@@ -26,6 +26,7 @@ class ProjetsController < ApplicationController
 
   def show
     @projet = Projet.find(params[:id])
+    @service = GithubIssuesService.new(@projet.develloppeur_profile.github_token)
   end
 
   def new

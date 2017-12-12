@@ -1,9 +1,13 @@
-<%= render "shared/header" %>
+<%= render "shared/header", service: @service, projet: @projet %>
 
 <div class="tabbable-line">
   <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="javascript: void(0)">Timeline</a></li>
-      <li role="presentation"><a href="javascript: void(0)">Messages</a></li>
+      <li role="presentation" class="active">
+        <%= link_to "Timeline", projet_dones_path(@projet) %>
+      </li>
+      <li role="presentation">
+        <%= link_to "Messages", projet_messages_path(@projet) %>
+      </li>
       <li role="presentation"><a href="javascript: void(0)">Stats(soon)</a></li>
   </ul>
   <div class="tab-content"></div>
