@@ -1,24 +1,25 @@
 <% content_for (:title) do %>
   <%= "Projets" %>
 <% end %>
-<div class="row">
 
-
-  <% @projets.each do |projet| %>
-    <%= link_to projet_dones_path(projet) do %>
-      <%= render "shared/card", projet: projet %>
+<div class="container p-t-3 p-b-3 ">
+  <div class="row">
+    <% @projets.each do |projet| %>
+      <%= link_to projet_dones_path(projet) do %>
+        <%= render "shared/card", projet: projet %>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% if current_user.role == "developpeur" %>
-    <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
-      <div class="card-projet">
-        <div class="panel panel-default b-a-0 shadow-box" style="height: 17.6em; background-color:#7E8697">
-          <div class="panel-body text-center">
-            <h2 style="font-size: 80px"><%= link_to "+", new_projet_path %></h2>
+    <% if current_user.role == "developpeur" %>
+      <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
+        <div class="card-projet">
+          <div class="panel panel-default b-a-0 shadow-box" style="height: 17.6em; background-color:#7E8697">
+            <div class="panel-body text-center">
+              <h2 style="font-size: 80px"><%= link_to "+", new_projet_path %></h2>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

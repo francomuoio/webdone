@@ -15,54 +15,29 @@
           <!-- START Right Side Navbar -->
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <%= link_to "Créer un projet", 'auth/github', class: "btn" %>
+              <%= link_to "Créer un projet", new_projet_path, class: "btn" %>
             </li>
             <li>
-              <%= link_to "Mes projets", 'auth/github', class: "btn" %>
+              <%= link_to "Mes projets", projets_path, class: "btn" %>
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
-                <span class="m-r-1">Ferne Flatley</span>
+                <span class="m-r-1">Nom Dév</span>
                 <div class="avatar avatar-image avatar-sm avatar-inline loaded">
-                  <% if current_user.client_profile && current_user.client_profile.photo.url %>
-                    <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
-                  <%else %>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%end %>
-                  <%end %>
                 </div>
               </a>
 
               <ul class="dropdown-menu">
-                <li class="dropdown-header">
-                  <small class="text-uppercase">
-                    <strong>Account</strong>
-                  </small>
-                </li>
-                <li role="separator" class="divider"></li>
-
                 <li>
-                  <% if current_user.client_profile %>
-                    <%= link_to client_profile_path(current_user.client_profile) do %>
-                      <i class="fa fa-user"></i>
-                      Mon Profile
-                    <% end %>
-                  <% else %>
-
-                  <% end %>
                 </li>
-
                 <li>
                   <%= link_to projets_path do %>
                     <i class="fa fa-user"></i>
                     Mes projets
                   <% end %>
                 </li>
-
                 <li role="separator" class="divider"></li>
-
                 <li>
-
                  <%= link_to destroy_user_session_path, method: :delete do %>
                     <i class="fa fa-sign-out"></i>  <%= t(".sign_out") %>
                   <% end %>

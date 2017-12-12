@@ -33,7 +33,17 @@
 
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if current_user %>
+      <% if current_user.dev? %>
+        <%= render 'shared/navbar_dev' %>
+      <% else %>
+        <%= render 'shared/navbar_client' %>
+      <% end %>
+      <% else %>
+        <%= render 'shared/navbar_client' %>
+    <% end %>
+
+
     <div class="off-content-wrapper">
       <%= yield %>
     </div>

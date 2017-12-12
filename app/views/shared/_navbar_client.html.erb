@@ -1,30 +1,31 @@
-<nav class ="navigation">
+<nav class="navigation">
+  <!-- START Navbar -->
   <div class="navbar-default navbar navbar-fixed-top">
     <div class="container-fluid">
-      <div class="navbar-header" style="min-height: 5em">
-        <%= link_to root_path do %>
-          <%=image_tag 'logo.png', :size => "60x60"%>
+
+      <div class="navbar-header">
+        <%= link_to root_path, class: "current navbar-brand" do %>
+          <%=image_tag 'Webdone-logo.png', class: 'navbar-logo'%>
         <% end %>
       </div>
 
-      <!-- START Right Side Navbar -->
       <div class="collapse navbar-collapse" id="navbar">
         <% if user_signed_in? %>
 
+          <!-- START Right Side Navbar -->
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to "Mes projets", projets_path, class: "btn" %>
+            </li>
 
-            <li><%= link_to "Créer un projet", new_projet_path %></li>
-            <li><%= link_to "Mes projets", projets_path %></li>
-
-            <!-- Avatar with dropdown menu -->
-            <li class="dropdown open">
-              <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button" aria-expanded="true">
+            <li class="dropdown">
+              <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
+                <span class="m-r-1">Client Name</span>
                 <div class="avatar avatar-image avatar-sm avatar-inline loaded">
                   <% if current_user.client_profile && current_user.client_profile.photo.url %>
                     <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
                   <%else %>
                     <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= t(".sign_out", default: "Log out") %>
                     <%end %>
                   <%end %>
                 </div>
@@ -40,28 +41,38 @@
                   <% else %>
                   <% end %>
                 </li>
-
                 <li>
                   <%= link_to projets_path do %>
                     <i class="fa fa-user"></i>
                     Mes projets
                   <% end %>
                 </li>
-
+                <li role="separator" class="divider"></li>
                 <li>
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                 <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out") %>
                   <% end %>
                 </li>
               </ul>
 
             </li>
           </ul>
-
         <% else %>
-
+        <ul class="nav navbar-nav navbar-right m-r-2">
+          <% if  current_user.nil? %>
+          <li>
+            <%= link_to "Connexion développeur", 'auth/github', class: "btn" %>
+          </li>
+          <li>
+            <%= link_to "Connexion client", new_user_registration_path, class: "btn" %>
+          </li>
+          <% end %>
+        </ul>
         <% end %>
+        <!-- END Right Side Navbar -->
       </div>
+
     </div>
   </div>
+  <!-- END Navbar -->
 </nav>
