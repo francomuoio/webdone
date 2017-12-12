@@ -13,7 +13,7 @@ class ClientProfilesController < ApplicationController
     @client = ClientProfile.new(client_params)
     @client.user = @user
     if @client.save
-      redirect_to client_profile_path(@client)
+      redirect_to projets_path
     else
       render :new
     end

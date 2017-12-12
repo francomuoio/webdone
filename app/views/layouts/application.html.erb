@@ -7,42 +7,40 @@
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'theme', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  <%= favicon_link_tag "favicon.ico" %>
-<title><%= meta_title %></title>
-<meta name="description" content="<%= meta_description %>">
+    <%= favicon_link_tag "favicon.ico" %>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
 
-<!-- Facebook Open Graph data -->
-<meta property="og:title" content="<%= meta_title %>" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="<%= request.original_url %>" />
-<meta property="og:image" content="<%= meta_image %>" />
-<meta property="og:description" content="<%= meta_description %>" />
-<meta property="og:site_name" content="<%= meta_title %>" />
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
 
-<!-- Twitter Card data -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
-<meta name="twitter:title" content="<%= meta_title %>">
-<meta name="twitter:description" content="<%= meta_description %>">
-<meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
-<meta name="twitter:image:src" content="<%= meta_image %>">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
 
 
-  <body class="sidebar-disabled navbar-fixed">
-    <div class="main-wrap">
-      <%= render 'shared/navbar' %>
-      <%= yield :home %>
-      <div class="content">
-        <div class="container-fluid">
-          <%= yield %>
-        </div>
-      </div>
-      <%= render 'shared/footer' %>
+  <body>
+    <%= render 'shared/navbar' %>
+    <div class="off-content-wrapper">
+      <%= yield %>
     </div>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= render 'shared/footer' %>
   </body>
+
+<%= javascript_include_tag 'theme' %>
+<%= javascript_include_tag 'application' %>
+
 </html>
