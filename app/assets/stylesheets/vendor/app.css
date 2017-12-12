@@ -3276,8 +3276,10 @@ body.rtl .spin-layout-options {
     vertical-align: bottom; }
   .avatar img {
     border-radius: 50%;
-    width: 100%;
+    width: 18px;
+    height: 18px;
     display: block; }
+
   .avatar .badge,
   .avatar .label {
     position: absolute;

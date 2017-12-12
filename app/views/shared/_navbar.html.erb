@@ -14,7 +14,12 @@
 
           <!-- START Right Side Navbar -->
           <ul class="nav navbar-nav navbar-right">
-            <%= render 'shared/navbar/projects_dropdown' %>
+            <li>
+              <%= link_to "Créer un projet", 'auth/github', class: "btn" %>
+            </li>
+            <li>
+              <%= link_to "Mes projets", 'auth/github', class: "btn" %>
+            </li>
             <li class="dropdown">
               <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
                 <span class="m-r-1">Ferne Flatley</span>
@@ -23,7 +28,6 @@
                     <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
                   <%else %>
                     <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= t(".sign_out", default: "Log out") %>
                     <%end %>
                   <%end %>
                 </div>
@@ -70,10 +74,10 @@
         <ul class="nav navbar-nav navbar-right m-r-2">
           <% if  current_user.nil? %>
           <li>
-            <%= link_to "Connection dévellopeur", 'auth/github', class: "btn" %>
+            <%= link_to "Connexion développeur", 'auth/github', class: "btn" %>
           </li>
           <li>
-            <%= link_to "Connection client", new_user_registration_path, class: "btn" %>
+            <%= link_to "Connexion client", new_user_registration_path, class: "btn" %>
           </li>
           <% end %>
         </ul>
