@@ -1,18 +1,75 @@
+<!-- ### META DONNEE -->
+
 <% content_for (:title) do %>
   <%= "Accueil" %>
 <% end %>
 <% content_for :meta_title, "test" %>
 
-<% content_for :home do %>
-  <%= render "shared/banner" %>
-  <%= render "shared/avantages" %>
-  <%= render "shared/ccm" %>
-<% end %>
+<!-- BANNER -->
+<%= render "shared/banner" %>
 
+<!-- AVANTAGES -->
 
+<div class="wd-section">
+  <div class="container text-center">
+    <h1>Avantages</h1>
+    <br>
+    <br>
+    <div class="row text-center">
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+        <div class="panel panel-default b-a-0 shadow-box p-a-3 b-r-a-3">
+          <h3>Rapidité</h3>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque aspernatur recusandae et vel officia sapiente ducimus unde soluta nesciunt.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="panel panel-default b-a-0 shadow-box p-a-3 b-r-a-3">
+          <h3>Rapidité</h3>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque aspernatur recusandae et vel officia sapiente ducimus unde soluta nesciunt.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="panel panel-default b-a-0 shadow-box p-a-3 b-r-a-3">
+          <h3>Rapidité</h3>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque aspernatur recusandae et vel officia sapiente ducimus unde soluta nesciunt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- COMMENT CA MARCHE -->
 
-
-
-
-
+<div class="wd-section">
+  <div class="container text-center">
+    <h1>Comment ça marche?</h1>
+    <br>
+    <br>
+    <div class="row text-center">
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+        <div class="panel panel-default b-a-0 shadow-box p-a-3 b-r-a-3">
+          <h3>Rapidité</h3>
+          <br>
+          <p>Recevez un lien direct vers votre projet par votre freelance</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="panel panel-default b-a-0 shadow-box p-a-3 b-r-a-3">
+          <h3>Rapidité</h3>
+          <br>
+          <p>Accedez à votre espace personnel et au dashboard de votre projet</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="panel panel-default b-a-0 shadow-box p-a-3 b-r-a-3">
+          <h3>Rapidité</h3>
+          <br>
+          <p>Communiquez facilement avec votre developpeur via la plateforme</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,5 @@ class DonesController < ApplicationController
     service = GithubIssuesService.new(@projet.develloppeur_profile.github_token)
     @issues = service.get_issues(@projet)
     @comments = service.get_comments(@projet)
-
   end
 end

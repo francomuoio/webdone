@@ -30,6 +30,7 @@ class ProjetsController < ApplicationController
 
   def show
     @projet = Projet.find(params[:id])
+    @service = GithubIssuesService.new(@projet.develloppeur_profile.github_token)
   end
 
   def new
@@ -52,7 +53,7 @@ class ProjetsController < ApplicationController
     @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
     authorize @projet
     if @projet.save
-      redirect_to projet_path(@projet)
+      redirect_to projet_dones_path(@projet)
     else
       render :new
     end
