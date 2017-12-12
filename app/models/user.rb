@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :client_profile
   has_one :develloppeur_profile
+  attr_accessor :repos
 
   def dev?
     role == 'developpeur'

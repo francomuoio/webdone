@@ -10,11 +10,15 @@ class ProjetsController < ApplicationController
     end
   end
 
-
   def index
+      # repos = Github::Client::Repos.new oauth_token: current_user.develloppeur_profile.github_token
     if current_user.role == "developpeur"
       dev = DevelloppeurProfile.find_by user_id: current_user.id
       @projets = Projet.where(develloppeur_profile_id: dev.id)
+      @repolist = []
+      @projets.each do |projet|
+        @repolist << projet.title
+      end
       @service = GithubIssuesService.new(current_user.develloppeur_profile.github_token)
     elsif current_user.client_profile.nil?
       redirect_to new_client_profile_path
@@ -40,11 +44,13 @@ class ProjetsController < ApplicationController
     clientele.each do |cli|
       @clients << ["#{cli.first_name} #{cli.last_name}", cli.id]
     end
+    authorize @projet
   end
 
   def create
     @projet = Projet.new(projet_params)
     @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
+    authorize @projet
     if @projet.save
       redirect_to projet_path(@projet)
     else

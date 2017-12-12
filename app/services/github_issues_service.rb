@@ -1,5 +1,4 @@
 class GithubIssuesService
-
   def initialize(github_token)
     @github = Github.new(oauth_token: github_token)
   end
@@ -43,5 +42,4 @@ class GithubIssuesService
       body: body
     )
   end
-
 end

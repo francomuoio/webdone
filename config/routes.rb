@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'users/create', to: 'users#create'
+
   get 'errors/not_found'
 
   get 'errors/internal_server_error'
+
 
   resources :develloppeur_profiles, only: :show
 
