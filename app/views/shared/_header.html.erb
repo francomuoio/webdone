@@ -1,10 +1,27 @@
-<div class="header"  >
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <div class="card hovercard">
+        <div class="cardheader">
+          <div class="avatar">
+            <img alt="" src="<%= service.get_dev(projet)["avatar_url"] %>">
+          </div>
+        </div>
 
-    <h2><strong>Username:</strong> <%= current_user.develloppeur_profile.github_username%></h2>
-    <p><strong>Mail: <%= current_user.email %></strong></p>
-
-
-
+        <div class="info">
+          <div class="title">
+            <h2><%= projet.develloppeur_profile.github_username %></h2>
+          </div>
+          <div class="desc">Developpeur</div>
+        </div>
+        <div class="bottom">
+          <a class="btn btn-primary btn-twitter btn-sm" href="mailto:<%= projet.develloppeur_profile.user.email %>">
+            <i class="fa fa-envelope-o fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

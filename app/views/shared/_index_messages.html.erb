@@ -59,8 +59,9 @@
                 </td>
 
                 <td class="v-a-m text-right">
-                  <span class="badge-outline badge badge-success"><%= issue["labels"].first["name"] %></span>
+                  <span class="badge-outline badge badge-success"><%= issue["labels"].first["name"] unless issue["labels"].empty? %></span>
                 </td>
+                <th class="small text-muted text-uppercase"></th>
                 <td class="v-a-m text-right">
                   <span class="text-gray-darker"><%= com["created_at"].split('T').first %></span>
                   <br><span><%= com["created_at"].split('T').last %></span>
