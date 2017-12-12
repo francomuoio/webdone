@@ -21,6 +21,7 @@
     </div>
   <% end %>
 </div>
+
 <% if !current_user.develloppeur_profile.nil? %>
   <%= simple_form_for User.new,
     :url => users_create_path, method: 'GET' do |f| %>
