@@ -44,6 +44,7 @@
                       Mon Profile
                     <% end %>
                   <% else %>
+
                   <% end %>
                 </li>
 
@@ -66,7 +67,16 @@
             </li>
           </ul>
         <% else %>
-
+        <ul class="nav navbar-nav navbar-right m-r-2">
+          <% if  current_user.nil? %>
+          <li>
+            <%= link_to "Connection dévellopeur", 'auth/github', class: "btn" %>
+          </li>
+          <li>
+            <%= link_to "Connection client", new_user_registration_path, class: "btn" %>
+          </li>
+          <% end %>
+        </ul>
         <% end %>
         <!-- END Right Side Navbar -->
       </div>
