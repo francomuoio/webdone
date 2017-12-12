@@ -3,6 +3,7 @@
 <% end %>
 <div class="row">
 
+
   <% @projets.each do |projet| %>
     <%= link_to projet_dones_path(projet) do %>
       <%= render "shared/card", projet: projet %>
@@ -21,4 +22,3 @@
     </div>
   <% end %>
 </div>
-
