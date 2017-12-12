@@ -43,7 +43,7 @@ class ProjetsController < ApplicationController
     @projet = Projet.new(projet_params)
     @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
     if @projet.save
-      redirect_to projet_path(@projet)
+      redirect_to projet_dones_path(@projet)
     else
       render :new
     end

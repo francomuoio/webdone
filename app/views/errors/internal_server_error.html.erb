@@ -1,19 +1,18 @@
-
-
 <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default b-a-0 shadow-box">
-                <div class="panel-heading text-center">
-                    <a href="../index.html"><img src="../assets/images/spin-logo-inverted-@2X.png" alt="Logo" class="m-t-3 m-b-3 h-20"></a>
-                </div>
-                <div class="panel-body">
-                    <h3 class="text-center m-b-0">Error 500</h3>
-                    <p class="text-center m-b-3">Sorry but the page you are looking for was not found. Try to fix the URL or use the search engine below.</p>
-
-                </div>
-                <div class="panel-footer b-a-0 b-r-a-0">
-                    <%= link_to "back", root_path, class: "btn btn-block btn-link" %>
-                </div>
-            </div>
-        </div>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-default b-a-0 shadow-box">
+      <div class="panel-heading text-center">
+        <%= link_to "/index.html" do %>
+          <%=image_tag 'logo.png', alt="Logo", class="m-t-3 m-b-3 h-20"%>
+        <% end %>
+      </div>
+      <div class="panel-body">
+          <h3 class="text-center m-b-0">Error 500</h3>
+          <p class="text-center m-b-3">Sorry but the page you are looking for was not found. Try to fix the URL or use the search engine below.</p>
+      </div>
+      <div class="panel-footer b-a-0 b-r-a-0">
+          <%= link_to "back", root_path, class: "btn btn-block btn-link" %>
+      </div>
     </div>
+  </div>
+</div>

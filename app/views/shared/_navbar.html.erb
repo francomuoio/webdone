@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="navbar-header" style="min-height: 5em">
         <%= link_to root_path do %>
-          <%=image_tag 'favicon.png', :size => "60x60"%>
+          <%=image_tag 'logo.png', :size => "60x60"%>
         <% end %>
       </div>
 
@@ -13,15 +13,14 @@
         <% if user_signed_in? %>
 
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <!-- Links when logged in -->
-              <%= link_to "Mes projets", projets_path %>
-            </li>
+
+            <li><%= link_to "Créer un projet", new_projet_path %></li>
+            <li><%= link_to "Mes projets", projets_path %></li>
 
             <!-- Avatar with dropdown menu -->
             <li class="dropdown open">
               <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button" aria-expanded="true">
-                <div class="avatar avatar-image avatar-lg avatar-inline loaded">
+                <div class="avatar avatar-image avatar-sm avatar-inline loaded">
                   <% if current_user.client_profile && current_user.client_profile.photo.url %>
                     <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
                   <%else %>
