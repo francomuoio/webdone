@@ -1,13 +1,14 @@
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: 70vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("http://res.cloudinary.com/dj7tgtuol/image/upload/v1512649523/kevin-bhagat-343433_hbrtru.jpg");
+  background-image: url("https://static.pexels.com/photos/461077/pexels-photo-461077.jpeg");
 }
 
 .banner h1 {
@@ -17,8 +18,8 @@
 }
 .banner p {
   font-size: 25px;
-  font-weight: lighter;
-  color: white;
+  font-weight: bold;
+  color: $gray-darker;
   opacity: 0.8;
   margin-bottom: 30px;
 }
