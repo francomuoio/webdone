@@ -2,22 +2,19 @@
   <div class="card-projet">
     <div class="panel panel-default b-a-0 shadow-box">
       <div class="panel-body">
-
         <h2><%= projet.title %></h2>
-        Dernière modification le:
-        <br>
+        <p>Dernière modification le:</p>
         <% if current_user.role == "developpeur" %>
-        <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
+          <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
         <% end %>
-        </div>
-
+      </div>
 
       <ul class="list-group no-bg">
-
         <li class="list-group-item  no-bg">
           Début du projet: <span><%= projet.created_at.strftime("%d %B %Y") %></span>
         </li>
       </ul>
+
     </div>
   </div>
 </div>

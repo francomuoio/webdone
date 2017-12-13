@@ -14,51 +14,30 @@
 
           <!-- START Right Side Navbar -->
           <ul class="nav navbar-nav navbar-right">
-            <%= render 'shared/navbar/projects_dropdown' %>
+            <li>
+              <%= link_to "Créer un projet", new_projet_path, class: "btn" %>
+            </li>
+            <li>
+              <%= link_to "Mes projets", projets_path, class: "btn" %>
+            </li>
             <li class="dropdown">
               <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
-                <span class="m-r-1">Ferne Flatley</span>
+                <span class="m-r-1">Nom Dév</span>
                 <div class="avatar avatar-image avatar-sm avatar-inline loaded">
-                  <% if current_user.client_profile && current_user.client_profile.photo.url %>
-                    <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
-                  <%else %>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= t(".sign_out", default: "Log out") %>
-                    <%end %>
-                  <%end %>
                 </div>
               </a>
 
               <ul class="dropdown-menu">
-                <li class="dropdown-header">
-                  <small class="text-uppercase">
-                    <strong>Account</strong>
-                  </small>
-                </li>
-                <li role="separator" class="divider"></li>
-
                 <li>
-                  <% if current_user.client_profile %>
-                    <%= link_to client_profile_path(current_user.client_profile) do %>
-                      <i class="fa fa-user"></i>
-                      Mon Profile
-                    <% end %>
-                  <% else %>
-
-                  <% end %>
                 </li>
-
                 <li>
                   <%= link_to projets_path do %>
                     <i class="fa fa-user"></i>
                     Mes projets
                   <% end %>
                 </li>
-
                 <li role="separator" class="divider"></li>
-
                 <li>
-
                  <%= link_to destroy_user_session_path, method: :delete do %>
                     <i class="fa fa-sign-out"></i>  <%= t(".sign_out") %>
                   <% end %>
@@ -70,10 +49,10 @@
         <ul class="nav navbar-nav navbar-right m-r-2">
           <% if  current_user.nil? %>
           <li>
-            <%= link_to "Connection dévellopeur", 'auth/github', class: "btn" %>
+            <%= link_to "Connexion développeur", 'auth/github', class: "btn" %>
           </li>
           <li>
-            <%= link_to "Connection client", new_user_registration_path, class: "btn" %>
+            <%= link_to "Connexion client", new_user_registration_path, class: "btn" %>
           </li>
           <% end %>
         </ul>

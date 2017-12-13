@@ -3276,8 +3276,10 @@ body.rtl .spin-layout-options {
     vertical-align: bottom; }
   .avatar img {
     border-radius: 50%;
-    width: 100%;
+    width: 18px;
+    height: 18px;
     display: block; }
+
   .avatar .badge,
   .avatar .label {
     position: absolute;
@@ -3900,7 +3902,7 @@ ol ol > li:before {
 
 /* Shadow Helper */
 .shadow-box {
-  box-shadow: 0 20px 20px rgba(0,0,0,.08); }
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1)}
 
 .shadow-box-none {
   box-shadow: none; }
