@@ -7,7 +7,9 @@
         <% if current_user.role == "developpeur" %>
           <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
           <% unless projet.client_profile.nil? %>
-            <p><strong>Client :</strong> <%= "#{projet.client_profile.first_name} #{projet.client_profile.last_name}" %></p>
+            <p><strong>Client : </strong><%= "#{projet.client_profile.first_name} #{projet.client_profile.last_name}" %></p>
+          <% else %>
+            <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
           <% end %>
         <% end %>
       </div>
@@ -17,7 +19,19 @@
           Début du projet: <span><%= projet.created_at.strftime("%d %B %Y") %></span>
         </li>
       </ul>
-      <%= render "shared/client_form" if projet.client_profile.nil? && current_user.role == "developpeur" %>
+      <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+              <h3 class="modal-title" id="lineModalLabel">Nouveau Client</h3>
+            </div>
+            <div class="modal-body">
+              <%= render "shared/client_form" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

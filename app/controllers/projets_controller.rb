@@ -25,7 +25,6 @@ class ProjetsController < ApplicationController
     else
       client = ClientProfile.find_by user_id: current_user.id
       @projets = Projet.where(client_profile_id: client.id)
-      @service = GithubIssuesService.new(@projet.develloppeur_profile.github_token)
     end
   end
 
@@ -54,7 +53,7 @@ class ProjetsController < ApplicationController
     @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
     authorize @projet
     if @projet.save
-      redirect_to projet_dones_path(@projet)
+      redirect_to projets_path
     else
       render :new
     end
