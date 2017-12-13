@@ -1,5 +1,5 @@
 .webdone-footer {
-  background: $gray;
+  background: $wd-blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 .webdone-footer-links a {
-  color: $gray-darker;
+  color: $gray-light;
   opacity: 0.4;
   text-decoration: none;
   font-size: 24px;
