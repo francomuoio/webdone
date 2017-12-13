@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_one :client_profile
   has_one :develloppeur_profile
+
+  # after_create :send_welcome_email
+
   attr_accessor :repos
 
   def dev?
@@ -35,5 +38,11 @@ class User < ApplicationRecord
       user.save!
       return user
     end
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now if client?
   end
 end

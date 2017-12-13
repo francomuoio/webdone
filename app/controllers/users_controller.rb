@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user.email = email
     @user.password = 'ChangezVotreMdp'
     if @user.save
+      UserMailer.userinvitation(@user).deliver_now
       # creation de profil
       clientprofile = ClientProfile.create!(
         first_name: 'changezvotreprenom',

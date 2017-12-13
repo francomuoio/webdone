@@ -89,4 +89,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'webdone.ninja', port: 3000 }
+
+  require 'mail'
+
+  Mail.defaults do
+    delivery_method :smtp, {
+      :port      => 587,
+      :address   => "smtp.mailgun.com",
+      :user_name => "postmaster@sandboxe582175b997846b58cca9357a4a391a4.mailgun.org",
+      :password  => "",
+    }
+  end
 end

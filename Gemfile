@@ -26,6 +26,9 @@ gem "binding_of_caller"
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'faraday-http-cache'
+gem 'postmark-rails'
+gem 'mailgun-ruby', '~>1.1.6'
+gem "letter_opener", group: :development
 
 
 group :development, :test do

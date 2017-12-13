@@ -6,9 +6,7 @@
         <h2><%= projet.title %></h2>
         Dernière modification le:
         <br>
-        <% if current_user.role == "developpeur" %>
-        <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
-        <% end %>
+
         </div>
 
 
