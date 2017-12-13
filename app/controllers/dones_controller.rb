@@ -22,9 +22,8 @@ class DonesController < ApplicationController
     #   #  }
     #   @arr << aa.title if aa["repository_url"] == url
     @projet = Projet.find(params[:projet_id])
-    @service = GithubIssuesService.new(current_user.develloppeur_profile.github_token)
-    @issues = @service.get_issues(@projet)
-    @comments = @service.get_comments(@projet)
-
+    service = GithubIssuesService.new(@projet.develloppeur_profile.github_token)
+    @issues = service.get_issues(@projet)
+    @comments = service.get_comments(@projet)
   end
 end

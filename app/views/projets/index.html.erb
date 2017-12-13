@@ -1,9 +1,8 @@
 <% content_for (:title) do %>
   <%= "Projets" %>
 <% end %>
+
 <div class="row">
-
-
   <% @projets.each do |projet| %>
     <%= link_to projet_dones_path(projet) do %>
       <%= render "shared/card", projet: projet %>
@@ -22,3 +21,17 @@
     </div>
   <% end %>
 </div>
+
+<% if !current_user.develloppeur_profile.nil? %>
+  <%= simple_form_for User.new,
+    :url => users_create_path, method: 'GET' do |f| %>
+    <%= f.input :email %>
+      <!--
+      Input avec Projet ID -> retrouver le projet
+      -->
+    <%= f.input :repos, collection: @repolist %>
+
+    <%= f.submit "créer un client", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+

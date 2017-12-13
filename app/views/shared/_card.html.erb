@@ -2,24 +2,18 @@
   <div class="card-projet">
     <div class="panel panel-default b-a-0 shadow-box">
       <div class="panel-body">
+
         <h2><%= projet.title %></h2>
         Dernière modification le:
         <br>
+        <% if current_user.role == "developpeur" %>
         <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
-      </div>
+        <% end %>
+        </div>
+
 
       <ul class="list-group no-bg">
-<!--    <li class="list-group-item  no-bg">
-          <div class="progress b-r-a-100 m-t-0 m-b-1 h-3 shadow-box-none">
-            <% @rate = (issues_done(@service.get_issues(projet)).count).to_f / (@service.get_issues(projet)).count * 100 %>
-            <div class="progress-bar shadow-box-none" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%= @rate %>%;">
-              <span class="sr-only"><%= @rate %>%</span>
-            </div>
-          </div>
-            <span class="m-t-0">
-              Tâches terminées: <span class="text-gray-darker"><%= issues_done(@service.get_issues(projet)).count %>/<%= @service.get_issues(projet).count %></span>
-            </span>
-        </li> -->
+
         <li class="list-group-item  no-bg">
           Début du projet: <span><%= projet.created_at.strftime("%d %B %Y") %></span>
         </li>
