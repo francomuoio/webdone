@@ -1,0 +1,66 @@
+<nav class="navigation">
+  <!-- START Navbar -->
+  <div class="navbar-default navbar navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <%= link_to root_path, class: "current navbar-brand" do %>
+          <%=image_tag 'Webdone-logo.png', class: 'navbar-logo'%>
+        <% end %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <% if user_signed_in? %>
+
+          <!-- START Right Side Navbar -->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to "Créer un projet", new_projet_path, class: "btn" %>
+            </li>
+            <li>
+              <%= link_to "Mes projets", projets_path, class: "btn" %>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
+                <span class="m-r-1">Nom Dév</span>
+                <div class="avatar avatar-image avatar-sm avatar-inline loaded">
+                </div>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li>
+                </li>
+                <li>
+                  <%= link_to projets_path do %>
+                    <i class="fa fa-user"></i>
+                    Mes projets
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                 <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out"></i>  <%= t(".sign_out") %>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right m-r-2">
+          <% if  current_user.nil? %>
+          <li>
+            <%= link_to "Connexion développeur", 'auth/github', class: "btn" %>
+          </li>
+          <li>
+            <%= link_to "Connexion client", new_user_registration_path, class: "btn" %>
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
+        <!-- END Right Side Navbar -->
+      </div>
+
+    </div>
+  </div>
+  <!-- END Navbar -->
+</nav>

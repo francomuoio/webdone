@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'theme', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= favicon_link_tag "favicon.ico" %>
+    <%= favicon_link_tag "favicon.png" %>
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
@@ -33,7 +33,17 @@
 
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if current_user %>
+      <% if current_user.dev? %>
+        <%= render 'shared/navbar_dev' %>
+      <% else %>
+        <%= render 'shared/navbar_client' %>
+      <% end %>
+      <% else %>
+        <%= render 'shared/navbar_client' %>
+    <% end %>
+
+
     <div class="off-content-wrapper">
       <%= yield %>
     </div>
