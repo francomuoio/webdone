@@ -4,7 +4,7 @@
     <p>Travaillez ensemble devient une évidence</p>
     <% if  current_user.nil? %>
       <%= link_to "Je suis un developpeur", 'auth/github', class: "btn btn-gray-light btn-lg" %>
-      <%= link_to "Je suis un client", new_user_registration_path, class: "btn btn-gray-light btn-lg" %>
+      <%= link_to "Je suis un client", user_session_path, class: "btn btn-gray-light btn-lg" %>
     <% end %>
   </div>
 </div>
