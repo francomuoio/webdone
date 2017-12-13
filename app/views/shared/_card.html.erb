@@ -7,7 +7,8 @@
         Dernière modification le:
         <br>
         <% if current_user.role == "developpeur" %>
-        <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
+          <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
+          <p><strong>Client :</strong> <%= "#{projet.client_profile.first_name} #{projet.client_profile.last_name}" %></p>
         <% end %>
         </div>
 
