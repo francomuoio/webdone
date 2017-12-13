@@ -1,0 +1,25 @@
+<div class="panel-heading">
+  <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="panel-title expand">
+    <div class="right-arrow pull-right">+</div>
+    <a href="#">Ajouter un client</a>
+  </h4>
+</div>
+<div id="collapse1" class="panel-collapse collapse">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-10 col-sm_offset-1">
+        <%= simple_form_for User.new,
+          :url => users_create_path, method: 'GET' do |f| %>
+          <%= f.input :email %>
+            <!--
+            Input avec Projet ID -> retrouver le projet
+            -->
+          <%= f.input :repos, collection: @repolist %>
+
+          <%= f.submit "créer un client", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

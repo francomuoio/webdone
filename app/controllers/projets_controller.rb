@@ -25,6 +25,7 @@ class ProjetsController < ApplicationController
     else
       client = ClientProfile.find_by user_id: current_user.id
       @projets = Projet.where(client_profile_id: client.id)
+      @service = GithubIssuesService.new(@projet.develloppeur_profile.github_token)
     end
   end
 
