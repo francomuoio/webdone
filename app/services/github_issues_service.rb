@@ -1,5 +1,4 @@
 class GithubIssuesService
-
   def initialize(github_token)
     @github = Github.new(oauth_token: github_token)
   end
@@ -43,5 +42,11 @@ class GithubIssuesService
       body: body
     )
   end
+
+  def get_dev(projet)
+    user, repo = projet.repository_url.split('/').last(2)
+    response = @github.repos.list.first["owner"]
+  end
+
 
 end
