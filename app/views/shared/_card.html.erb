@@ -7,7 +7,7 @@
         <% if current_user.role == "developpeur" %>
           <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
           <% unless projet.client_profile.nil? %>
-            <p><strong>Client :</strong><%= "#{projet.client_profile.first_name} #{projet.client_profile.last_name}" %></p>
+            <p><strong>Client : </strong><%= "#{projet.client_profile.first_name} #{projet.client_profile.last_name}" %></p>
           <% else %>
             <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
           <% end %>
