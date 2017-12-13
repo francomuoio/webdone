@@ -74,3 +74,5 @@ class ProjetsController < ApplicationController
     params.require(:projet).permit(:title, :content, :repository_url)
   end
 end
+
+#pour date faire une logique client et developpeur.
