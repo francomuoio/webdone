@@ -1,4 +1,4 @@
 class DevelloppeurProfile < ApplicationRecord
-  has_many :projet
+  has_many :projets
   belongs_to :user
 end

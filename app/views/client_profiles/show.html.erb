@@ -1,28 +1,31 @@
-<br>
-<br>
-<div class="col-lg-6 col-lg-offset-3">
-  <div class="panel panel-default b-a-0 shadow-box">
-    <div class="panel-heading">
-      <h4 class="panel-title">Mon Profile</h4>
-    </div>
-    <div class="panel-body">
-      <div class="photo text-center">
-        <%= cl_image_tag @client.photo, height: 200, width: 200, crop: :fill %>
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-default b-a-0 shadow-box">
+      <div class="panel-heading">
+        <h4 class="panel-title">Mon Profile</h4>
       </div>
+      <div class="panel-body">
+        <div class="photo text-center">
+          <%= cl_image_tag @client.photo, height: 200, width: 200, crop: :fill %>
+        </div>
 
-      <div class="information text-center">
-        <h2><%= @client.first_name %> <%= @client.last_name%></h2>
-        <h4>Email: </h4>
-        <h4>Tel: <%= @client.phone_number%></h4>
-      </div>
-      <br>
-      <br>
-      <br>
-      <div class="text-center">
-        <%= link_to "Editer", edit_client_profile_path, class: "btn btn-gray-light btn-lg" %>
-        <%= link_to "Back", projets_path, class: "btn btn-gray-light btn-lg" %>
-      </div>
+        <div class="information text-center">
+          <h2><%= @client.first_name %> <%= @client.last_name%></h2>
+          <h4>Email: </h4>
+          <h4>Tel: <%= @client.phone_number%></h4>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="text-center">
+          <%= link_to "Editer", edit_client_profile_path, class: "btn btn-gray-light btn-lg" %>
+          <%= link_to "Back", projets_path, class: "btn btn-gray-light btn-lg" %>
+        </div>
 
+      </div>
     </div>
   </div>
 </div>

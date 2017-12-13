@@ -54,7 +54,7 @@ class ProjetsController < ApplicationController
     @projet.develloppeur_profile = DevelloppeurProfile.find_by user_id: current_user.id
     authorize @projet
     if @projet.save
-      redirect_to projet_dones_path(@projet)
+      redirect_to projets_path
     else
       render :new
     end

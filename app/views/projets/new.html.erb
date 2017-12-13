@@ -1,11 +1,18 @@
-<br>
-<br>
-<div class="col-lg-6 col-lg-offset-3">
-  <div class="panel panel-default b-a-0 shadow-box">
-    <div class="panel-heading">
-        <h4 class="panel-title">Mon Projet</h4>
+<% content_for :title do %>
+  <%= "Nouveau projet" %>
+<% end %>
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-default b-a-0 shadow-box">
+      <div class="panel-heading">
+          <h4 class="panel-title">Mon Projet</h4>
+      </div>
+      <%= render 'form' %>
     </div>
-    <%= render 'form' %>
   </div>
 </div>
 

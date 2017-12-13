@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       # save du profil
       redirect_to projets_path
     else
-      render 'projets/index'
+      redirect_to projets_path
     end
   end
 end

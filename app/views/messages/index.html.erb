@@ -5,14 +5,12 @@
       <ul class="nav nav-tabs">
         <li role="presentation"  ><%= link_to "Timeline", projet_dones_path(@projet)%></li>
           <li role="presentation" class="active" ><%= link_to "Messages", projet_messages_path(@projet)%></li>
-
-          <li role="presentation"  ><%= link_to "stats", projet_dones_path(@projet)%></li>
       </ul>
       <div class="tab-content"></div>
     </div>
 <div class="part1">
   <div class="part2">
-<%= render "shared/header" %>
+<%= render "shared/header" if current_user.client_profile %>
 </div>
 <!-- START EDIT CONTENT -->
 <div class="part3">

@@ -1,3 +1,7 @@
+<div class="container">
+  <br>
+  <br>
+  <br>
 <%= render "shared/header", service: @service, projet: @projet %>
 
 <div class="tabbable-line">
@@ -8,10 +12,24 @@
       <li role="presentation">
         <%= link_to "Messages", projet_messages_path(@projet) %>
       </li>
-      <li role="presentation"><a href="javascript: void(0)">Stats(soon)</a></li>
   </ul>
-  <div class="tab-content"></div>
-
+  <div class="tab-content">
+    <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
   </div>
+  <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+          <h3 class="modal-title" id="lineModalLabel">Nouveau Client</h3>
+        </div>
+        <div class="modal-body">
+          <%= render "shared/client_form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 

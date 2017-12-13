@@ -1,12 +1,13 @@
 .webdone-footer {
-  background: $gray-base;
+  background: $wd-blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   min-width: 100%;
   padding: 0px 50px;
-  color: white;
+  color: $gray-darker;
+  position: absolute;
   bottom:0;
 }
 .webdone-footer-links {
@@ -14,7 +15,7 @@
   align-items: center;
 }
 .webdone-footer-links a {
-  color: white;
+  color: $gray-light;
   opacity: 0.4;
   text-decoration: none;
   font-size: 24px;

@@ -2,36 +2,30 @@
   <%= "Projets" %>
 <% end %>
 
-<div class="row">
-  <% @projets.each do |projet| %>
-    <%= link_to projet_dones_path(projet) do %>
-      <%= render "shared/card", projet: projet %>
-    <% end %>
-  <% end %>
+<div class="container">
+<br>
+<br>
+  <div class="text-center">
+  <h1>Vos Projets</h1>
+  </div>
 
-  <% if current_user.role == "developpeur" %>
-    <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
-      <div class="card-projet">
-        <div class="panel panel-default b-a-0 shadow-box" style="height: 17.6em; background-color:#7E8697">
-          <div class="panel-body text-center">
-            <h2 style="font-size: 80px"><%= link_to "+", new_projet_path %></h2>
+  <div class="row">
+    <% @projets.each do |projet| %>
+      <%= link_to projet_messages_path(projet) do %>
+        <%= render "shared/card", projet: projet %>
+      <% end %>
+    <% end %>
+
+    <% if current_user.role == "developpeur" %>
+      <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
+        <div class="card-projet">
+          <div class="panel panel-default b-a-0 shadow-box" style="height: 13.5em; background-color:#D9DCE2">
+            <div class="panel-body text-center">
+              <h2 style="font-size: 60px"><%= link_to "+", new_projet_path %></h2>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-<% if !current_user.develloppeur_profile.nil? %>
-  <%= simple_form_for User.new,
-    :url => users_create_path, method: 'GET' do |f| %>
-    <%= f.input :email %>
-      <!--
-      Input avec Projet ID -> retrouver le projet
-      -->
-    <%= f.input :repos, collection: @repolist %>
-
-    <%= f.submit "créer un client", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-
