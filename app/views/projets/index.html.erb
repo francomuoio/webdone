@@ -22,21 +22,3 @@
   <% end %>
 </div>
 
-
-<% if !current_user.develloppeur_profile.nil? %>
-  <div class="container">
-    <div class="row">
-      <%= simple_form_for User.new,
-        :url => users_create_path, method: 'GET' do |f| %>
-        <%= f.input :email %>
-          <!--
-          Input avec Projet ID -> retrouver le projet
-          -->
-        <%= f.input :repos, collection: @repolist %>
-
-        <%= f.submit "créer un client", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
