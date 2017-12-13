@@ -14,7 +14,7 @@
 <div class="part1">
 
   <div class="part2">
-    <%= render "shared/header" %>
+    <%= render "shared/header" if current_user.client_profile %>
   </div>
 
   <div class="part3">
@@ -51,7 +51,7 @@
                               <!-- Timeline - Header & Subtitle -->
                               <div class="user-detail">
                                 <h5><%= issue["title"] %></h5>
-                                <p class="m-t-0 m-b-0 small text-uppercase"><strong><span>From: Edythe Koch</span></strong>
+                                <p class="m-t-0 m-b-0 small text-uppercase"><strong><span>De: <%= issue["user"]["login"] %></span></strong>
                                 </p>
                               </div>
                             </div>

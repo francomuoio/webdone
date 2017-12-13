@@ -17,14 +17,16 @@
             <%= render 'shared/navbar/projects_dropdown' %>
             <li class="dropdown">
               <a class="dropdown-toggle user-dropdown" data-toggle="dropdown" href="javascript: void(0)" role="button">
-                <span class="m-r-1">Ferne Flatley</span>
+                <span class="m-r-1">
+                  <% if current_user.client_profile.nil? %>
+                    <%= current_user.develloppeur_profile.github_username %>
+                  <% else %>
+                    <%= "#{current_user.client_profile.first_name} #{current_user.client_profile.last_name}" %>
+                  <% end %>
+                </span>
                 <div class="avatar avatar-image avatar-sm avatar-inline loaded">
                   <% if current_user.client_profile && current_user.client_profile.photo.url %>
                     <%= cl_image_tag (ClientProfile.find(current_user.client_profile.id)).photo %>
-                  <%else %>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= t(".sign_out", default: "Log out") %>
-                    <%end %>
                   <%end %>
                 </div>
               </a>
