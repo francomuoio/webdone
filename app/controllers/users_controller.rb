@@ -31,7 +31,6 @@ class UsersController < ApplicationController
         redirect_to projets_path(projet)
       end
 
-
     else
       cli = ClientProfile.find_by user_id: client_in.id
       projet.client_profile_id = cli.id
