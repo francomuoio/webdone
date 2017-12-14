@@ -26,6 +26,7 @@ class ProjetsController < ApplicationController
       client = ClientProfile.find_by user_id: current_user.id
       @projets = Projet.where(client_profile_id: client.id)
     end
+
   end
 
   def show
