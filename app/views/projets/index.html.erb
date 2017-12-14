@@ -4,8 +4,11 @@
 <div class="container">
   <br>
   <br>
-  <div class="text-center">
-  <h1>Vos Projets</h1>
+  <div class="title-section-messages">
+    <h1><strong>Mes Projets</h1>
+    <% if current_user.role == "developpeur" %>
+      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Inviter un client</button>
+    <% end %>
   </div>
 
   <div class="row">
@@ -28,10 +31,6 @@
     <% end %>
   </div>
   <div class="row">
-    <% if current_user.role == "developpeur" %>
-      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
-    <% end %>
-
     <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
