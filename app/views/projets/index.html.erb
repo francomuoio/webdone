@@ -4,13 +4,16 @@
 <div class="container">
   <br>
   <br>
-  <div class="text-center">
-  <h1>Vos Projets</h1>
+  <div class="title-section-messages">
+    <h1><strong>Mes Projets</h1>
+    <% if current_user.role == "developpeur" %>
+      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Inviter un client</button>
+    <% end %>
   </div>
 
   <div class="row">
     <% @projets.each do |projet| %>
-      <%= link_to projet_messages_path(projet) do %>
+      <%= link_to projet_dones_path(projet) do %>
         <%= render "shared/card", projet: projet %>
       <% end %>
     <% end %>
@@ -28,10 +31,6 @@
     <% end %>
   </div>
   <div class="row">
-    <% if current_user.role == "developpeur" %>
-      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
-    <% end %>
-
     <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
