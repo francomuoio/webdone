@@ -1,5 +1,5 @@
 class ClientProfile < ApplicationRecord
-  has_many :projet
+  has_many :projet, dependent: :destroy
   belongs_to :user
 
   validates :first_name, presence: true, allow_blank: false
