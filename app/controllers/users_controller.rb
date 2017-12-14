@@ -33,9 +33,13 @@ class UsersController < ApplicationController
 
     else
       cli = ClientProfile.find_by user_id: client_in.id
-      projet.client_profile_id = cli.id
-      if projet.save!
-        redirect_to projets_path
+      if cli && projet
+        projet.client_profile_id = cli.id
+        if projet.save!
+          redirect_to projets_path
+        else
+          redirect_to projets_path(projet)
+        end
       else
         redirect_to projets_path(projet)
       end
