@@ -60,6 +60,6 @@ Rails.application.configure do
     domain: 'sandboxe582175b997846b58cca9357a4a391a4.mailgun.org',
   }
 
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
