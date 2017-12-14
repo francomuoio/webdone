@@ -17,54 +17,47 @@
   </div>
 
   <div class="part3">
-
-
     <div class="col-lg-8">
-        <!-- START Timeline - Post -->
-        <% issues_done(@issues).each do |issue| %>
-            <ul>
-              <li>
-                <div class="timeline timeline-datetime" id="wallmessages">
-
-                    <!-- Timeline - Badge Date -->
-                    <div class="timeline-date">
-                        <span class="badge">
-                          crée le:
-                          <% datemodif = issue["created_at"].split("-") %>
-                          <%= datemodif[2][0..1]%>-<%=datemodif[1]%>-<%=datemodif[0]%>
-                        </span>
-                    </div>
-                    <div class="timeline-item p-r-1" id="m16">
-                        <!-- Timeline - Mini Icon -->
-                        <div class="timeline-icon">
-                            <i class="fa fa-circle-o text-danger"></i>
-                        </div>
-                        <div class=" timeline-item-inner">
-                            <!-- Timeline - Date -->
-                            <span class="timeline-item-time"></span>
-                            <!-- Timeline - Icon  -->
-                            <div class="timeline-item-head clearfix">
-                              <div class="pull-left m-r-1">
-                                  <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i> <i class="fa fa-check fa-stack-1x fa-inverse"></i></span>
-                              </div>
-                              <!-- Timeline - Header & Subtitle -->
-                              <div class="user-detail">
-                                <h5><%= issue["title"] %></h5>
-                                <p class="m-t-0 m-b-0 small text-uppercase"><strong><span>De: <%= issue["user"]["login"] %></span></strong>
-                                </p>
-                              </div>
-                            </div>
-                            <!-- Timeline - START Content -->
-                            <div class="timeline-item-content m-b-2">
-                              <p class="m-b-1"><span><%= issue["comments"] %> messages</span></p>
-                            </div>
-                            <!-- Timeline - END Content -->
-                        </div>
-                    </div>
+      <!-- START Timeline - Post -->
+      <% issues_done(@issues).each do |issue| %>
+        <div class="timeline timeline-datetime" id="wallmessages">
+          <!-- Timeline - Badge Date -->
+          <div class="timeline-date">
+              <span class="badge">
+                crée le:
+                <% datemodif = issue["created_at"].split("-") %>
+                <%= datemodif[2][0..1]%>-<%=datemodif[1]%>-<%=datemodif[0]%>
+              </span>
+          </div>
+            <div class="timeline-item p-r-1" id="m16">
+              <!-- Timeline - Mini Icon -->
+              <div class="timeline-icon">
+                <i class="fa fa-circle-o text-danger"></i>
+              </div>
+              <div class=" timeline-item-inner">
+                <!-- Timeline - Date -->
+                <span class="timeline-item-time"></span>
+                <!-- Timeline - Icon  -->
+                <div class="timeline-item-head clearfix">
+                  <div class="pull-left m-r-1">
+                    <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i> <i class="fa fa-check fa-stack-1x fa-inverse"></i></span>
+                  </div>
+                  <!-- Timeline - Header & Subtitle -->
+                  <div class="user-detail">
+                    <h5><%= issue["title"] %></h5>
+                    <p class="m-t-0 m-b-0 small text-uppercase"><strong><span>De: <%= issue["user"]["login"] %></span></strong>
+                    </p>
+                  </div>
                 </div>
-              </li>
-            </ul>
-        <% end %>
+                <!-- Timeline - START Content -->
+                <div class="timeline-item-content m-b-2">
+                  <p class="m-b-1"><span><%= issue["comments"] %> messages</span></p>
+                </div>
+                <!-- Timeline - END Content -->
+              </div>
+            </div>
+          </div>
+      <% end %>
     </div>
   </div>
 
