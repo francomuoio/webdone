@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     # @projet = Projet.find(params[:repository_url])
     email = params[:user][:email]
     pwd = params[:user][:password]
+
     client_in = User.find_by email: email
     if client_in.nil?
       @user = User.new
@@ -29,6 +30,8 @@ class UsersController < ApplicationController
       else
         redirect_to projets_path(projet)
       end
+
+
     else
       cli = ClientProfile.find_by user_id: client_in.id
       projet.client_profile_id = cli.id

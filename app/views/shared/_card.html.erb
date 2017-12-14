@@ -3,21 +3,12 @@
     <div class="panel panel-default b-a-0 shadow-box">
       <div class="panel-body">
         <h2><%= projet.title %></h2>
-        <p>Dernière modification le:</p>
-        <% if current_user.role == "developpeur" %>
-          <span><%= Date.parse(@service.get_issues(projet).last["created_at"].gsub(/T.*/, "")).strftime("%d %B %Y") %></span>
-          <% unless projet.client_profile.nil? %>
-            <p><strong>Client : </strong><%= "#{projet.client_profile.first_name} #{projet.client_profile.last_name}" %></p>
-          <% end %>
-        <% end %>
+        <ul class="list-group no-bg">
+          <li class="list-group-item  no-bg">
+            Début du projet: <span><%= projet.created_at.strftime("%d %B %Y") %></span>
+          </li>
+        </ul>
       </div>
-
-      <ul class="list-group no-bg">
-        <li class="list-group-item  no-bg">
-          Début du projet: <span><%= projet.created_at.strftime("%d %B %Y") %></span>
-        </li>
-      </ul>
-
     </div>
   </div>
 </div>

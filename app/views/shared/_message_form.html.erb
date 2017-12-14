@@ -2,7 +2,7 @@
   <form action="<%= projet_messages_path(@projet.id) %>" method="post">
   <!-- START Panel Sessions -->
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <div class="panel panel-default b-a-0 shadow-box">
+
       <div class="panel-heading">
       <!-- START Header with Option -->
         <div class="row">
@@ -53,7 +53,7 @@
         <textarea name="body" class="form-control" rows="6" placeholder="Entrez votre message..."></textarea>
         <!-- START Attachments Section -->
       </div>
-    </div>
+
   </form>
   <!-- END Panel Sessions -->
 </div>
