@@ -6,6 +6,7 @@
     -->
   <%= f.input :repos, collection: @repolist %>
 
-  <%= f.submit "Créer un client", class: "btn btn-primary" %>
+  <%= f.submit "Inviter un client", class: "btn btn-gray-light btn-lg" %>
+  <%= link_to "Back", projets_path, class: "btn btn-gray-light btn-lg" %>
 <% end %>
 

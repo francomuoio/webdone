@@ -7,7 +7,7 @@
   <div class="title-section-messages">
     <h1><strong>Mes Projets</h1>
     <% if current_user.role == "developpeur" %>
-      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Inviter un client</button>
+      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-gray-light btn-lg" style="background-color:#0B173B">Inviter un client</button>
     <% end %>
   </div>
 
@@ -21,9 +21,11 @@
     <% if current_user.role == "developpeur" %>
       <div class="col-xs-6 col-md-4" style="margin-top: 50px" >
         <div class="card-projet">
-          <div class="panel panel-default b-a-0 shadow-box" style="height: 13.5em; background-color:#D9DCE2">
+          <div class="panel panel-default b-a-0 shadow-box" style="height: 12em; background-color:#D9DCE2">
             <div class="panel-body text-center">
-              <h2 style="font-size: 60px"><%= link_to "+", new_projet_path %></h2>
+              <%= link_to new_projet_path, class:"toto" do %>
+                <h2 style="font-size:60px">+</h2>
+              <% end %>
             </div>
           </div>
         </div>
