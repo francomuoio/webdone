@@ -91,10 +91,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  # MailGun
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: ENV["MAILGUN_API_KEY"]
-    domain: ENV["MAILGUN_DOMAIN"],
-  }
+  # # MailGun
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: ENV["MAILGUN_API_KEY"],
+  #   domain: ENV["MAILGUN_DOMAIN"]
+  # }
 end
