@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       # save du profil
       redirect_to projets_path
     else
-      redirect_to projets_path
+      redirect_to projets_path(projet)
     end
   end
 end
