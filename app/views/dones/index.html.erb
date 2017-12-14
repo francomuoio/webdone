@@ -12,14 +12,18 @@
 
 <div class="part1">
 
-  <div class="part2">
-    <%= render "shared/header" if current_user.client_profile %>
-  </div>
+<br>
+<br>
 
-  <div class="part3 row">
-    <div class="col-lg-8">
+
+  <div class="row justify-content-center">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1 class="text-center"><strong><%= @projet.title %></strong> - Issues Dones</h1>
+      <br>
+      <br>
       <!-- START Timeline - Post -->
       <% issues_done(@issues).each do |issue| %>
+
         <div class="timeline timeline-datetime" id="wallmessages">
           <!-- Timeline - Badge Date -->
           <div class="timeline-date">
@@ -57,6 +61,9 @@
               </div>
             </div>
           </div>
+
+
+
       <% end %>
     </div>
   </div>

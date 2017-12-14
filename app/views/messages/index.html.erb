@@ -17,27 +17,33 @@
   <div class="part2">
   </div>
 
-  <div class="row">
-    <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Nouveau Message</button>
-    <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
-            <h3 class="modal-title" id="lineModalLabel">Nouveau Message</h3>
-          </div>
-          <div class="modal-body">
-            <%= render "shared/message_form" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- START EDIT CONTENT -->
   <div class="part3">
     <div class="container">
+      <div class="title-section-messages">
+        <h3><strong><%= @projet.title %></strong> - Messages échangés</h3>
+        <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary text-right">Nouveau Message</button>
+      </div>
+      <br>
       <%= render 'shared/index_messages' %>
       <!-- END EDIT CONTENT -->
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+          <h3 class="modal-title" id="lineModalLabel">Nouveau Message</h3>
+        </div>
+        <div class="modal-body">
+          <%= render "shared/message_form" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
