@@ -28,7 +28,9 @@
     <% end %>
   </div>
   <div class="row">
-    <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
+    <% if current_user.role == "developpeur" %>
+      <button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Ajouter un client</button>
+    <% end %>
 
     <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog">

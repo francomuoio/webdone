@@ -32,7 +32,7 @@
                 </thead>
                 <tbody>
                   <!-- START ROW Mail (New) -->
-                  <% comments_for_issue(issue, @comments).each do |com| %>
+                  <% comments_for_issue(issue, @comments).reverse.each do |com| %>
                     <tr>
                       <td class="v-a-m">
                         <p class="text-nowrap m-b-0">
