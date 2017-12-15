@@ -22,6 +22,7 @@ class User < ApplicationRecord
   def self.find_or_create_for_github_oauth(auth_hash)
     dp = DevelloppeurProfile.find_by(github_uid: auth_hash[:uid])
     if dp
+      dp.update(github_token: auth_hash[:credentials][:token])
       return dp.user
     else
       user = User.new(
